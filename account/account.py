@@ -1,6 +1,7 @@
 import random
 import string
 
+from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
@@ -31,7 +32,7 @@ class LoginView(View):
             if not key:
                 h_string = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
                 sha_signature = hashlib.sha1(h_string.encode()).hexdigest()
-                Api_key.objects.create(key=sha_signature)
+                Api_key.objects.create(key=sha_signature, created_at=datetime.now())
                 request.session['api_key'] = hashlib.md5(sha_signature.encode()).hexdigest()
             else:
                 request.session['api_key'] = hashlib.md5(key["key"].encode()).hexdigest()

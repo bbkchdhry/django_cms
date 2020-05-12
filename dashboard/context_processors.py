@@ -44,6 +44,7 @@ def get_permission(user_id):
     return permission_user
 
 def config_json():
+    print(os.getenv("config_path"))
     with open(os.getenv("config_path")) as f:
         data = json.load(f)
 
