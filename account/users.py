@@ -234,9 +234,13 @@ class Change_user(View):
 class Change_password(View):
     @my_login_required
     def get(self, request, id):
+        is_logged_in = False
         user_data = User.objects.get(id=id)
         context = context_processors.base_variables_all(request)
+        if request.session['user'] == int(id):
+            is_logged_in = True
         context['user_data'] = user_data
+        context['is_logged_in'] = is_logged_in
         # print(context['user_data'].user_name)
         return render(request, 'account/change_password.html', context)
 

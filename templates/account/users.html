@@ -173,7 +173,7 @@
                 url: "{% url 'users_delete' %}",
                 success: function (data) {
                     if (data.success){
-                        location.reload();
+                        window.location.reload(true);
                     }
                 }
 
