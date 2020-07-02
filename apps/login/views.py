@@ -12,3 +12,9 @@ def login(request):
         'title': 'Dashboard'
     }
     return render(request, 'index.html', context)
+
+def profile(request):
+    context = {
+        'title': 'Profile'
+    }
+    return render(request, 'profile.html', context)

@@ -21,5 +21,6 @@ from apps.login import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', include('apps.login.urls')),
-    path('dashboard', views.login, name="login")
+    path('dashboard/', views.login, name="dashboard"),
+    path('profile/', views.profile, name="profile")
 ]

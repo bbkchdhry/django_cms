@@ -53,7 +53,7 @@
     </ul>
     <!-- END TOP-LEFT TOOLBAR-->
     <!--LOGO-->
-    <a class="page-brand" href="../index.html">A</a>
+    <a class="page-brand" href="{% url 'dashboard' %}">A</a>
     <!-- START TOP-RIGHT TOOLBAR-->
     <ul class="nav navbar-toolbar">
         <li class="dropdown dropdown-user">
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="admin-menu-features">
-                    <a class="admin-features-item" href="javascript:;"><i class="ti-user"></i>
+                    <a class="admin-features-item" href="{% url 'profile' %}"><i class="ti-user"></i>
                         <span>PROFILE</span>
                     </a>
                     <a class="admin-features-item" href="javascript:;"><i class="ti-support"></i>
