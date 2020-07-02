@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block externalcss %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="cover"></div>
+    <div class="ibox login-content">
+        <div class="text-center">
+            <span class="auth-head-icon"><i class="la la-user"></i></span>
+        </div>
+        <form class="ibox-body" id="login-form" action="javascript:;" method="POST">
+            <h4 class="font-strong text-center mb-5">LOG IN</h4>
+            <div class="form-group mb-4">
+                <input class="form-control form-control-line" type="text" name="email" placeholder="Email">
+            </div>
+            <div class="form-group mb-4">
+                <input class="form-control form-control-line" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="flexbox mb-5">
+                <span>
+                    <label class="ui-switch switch-icon mr-2 mb-0">
+                        <input type="checkbox" checked="">
+                        <span></span>
+                    </label>Remember</span>
+                <a class="text-primary" href="forgot_password.html">Forgot password?</a>
+            </div>
+            <div class="text-center mb-4">
+                <button class="btn btn-primary btn-rounded btn-block">LOGIN</button>
+            </div>
+        </form>
+    </div>
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+{% endblock %}
+
+{% block externaljs %}
+    <script>
+        $(function() {
+            $('#login-form').validate({
+                errorClass: "help-block",
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true
+                    }
+                },
+                highlight: function(e) {
+                    $(e).closest(".form-group").addClass("has-error")
+                },
+                unhighlight: function(e) {
+                    $(e).closest(".form-group").removeClass("has-error")
+                },
+            });
+        });
+    </script>
+{% endblock %}

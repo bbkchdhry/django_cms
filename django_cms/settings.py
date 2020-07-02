@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'vic@h+&7+#@(7-j-_b$%sv8=mbf%e^_rj@3h=-6b$x2g)rmpef'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("debug")
+DEBUG = True
 
-ALLOWED_HOSTS = os.getenv("allowed_hosts").split(',')
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'apps.login'
 ]
 
 REST_FRAMEWORK = {
