@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title>Login</title>
+     {% if title %}
+         <title>{{ title }}</title>
+     {% else %}
+         <title>Title</title>
+     {% endif %}
+
+
     <link href="{% static 'vendors/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet" />
     <link href="{% static 'vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" />
     <link href="{% static 'vendors/line-awesome/css/line-awesome.min.css' %}" rel="stylesheet" />
@@ -36,6 +42,7 @@
 <!-- PAGE LEVEL PLUGINS-->
 <!-- CORE SCRIPTS-->
 <script src="{% static 'js/app.min.js' %}"></script>
+<!-- PAGE LEVEL SCRIPTS-->
 {% block externaljs %}
 {% endblock %}
 </html>

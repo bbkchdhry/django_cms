@@ -10,7 +10,7 @@
         <div class="text-center">
             <span class="auth-head-icon"><i class="la la-user"></i></span>
         </div>
-        <form class="ibox-body" id="login-form" action="javascript:;" method="POST">
+        <form class="ibox-body" id="login-form" action="{% url 'login' %}" method="POST">{% csrf_token %}
             <h4 class="font-strong text-center mb-5">LOG IN</h4>
             <div class="form-group mb-4">
                 <input class="form-control form-control-line" type="text" name="email" placeholder="Email">
