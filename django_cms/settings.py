@@ -28,7 +28,7 @@ SECRET_KEY = 'vic@h+&7+#@(7-j-_b$%sv8=mbf%e^_rj@3h=-6b$x2g)rmpef'
 # DEBUG = os.getenv("debug")
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
