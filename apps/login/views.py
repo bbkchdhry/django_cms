@@ -18,3 +18,4 @@ def profile(request):
         'title': 'Profile'
     }
     return render(request, 'profile.html', context)
+

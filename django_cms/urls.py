@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 from apps.login import views
+from apps.account.views import users_page
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('login/', include('apps.login.urls')),
     path('dashboard/', views.login, name="dashboard"),
-    path('profile/', views.profile, name="profile")
+    path('profile/', views.profile, name="profile"),
+    path('dashboard/users/', include('apps.account.urls'))
 ]

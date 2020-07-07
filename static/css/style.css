@@ -1,0 +1,65 @@
+.add-user{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    height: 30px;
+}
+
+.add-user a{
+    width: 30%;
+    background: #919ca8;
+    padding: 20px 30px;
+    border-radius: 30px;
+}
+
+/* modal */
+.user_modal{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.modal_container{
+    top: 60px;
+    position: relative;
+    background: #FFFFFF;
+    width: 40%;
+    max-height: 85%;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+.modal_container_close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 3px 15px;
+    margin: 0;
+    background: rgba(230, 12, 12, 0.5);
+    color: rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 0 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.5s ease-in-out;
+}
+
+.ibox-title{
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid red;
+}

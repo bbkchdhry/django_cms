@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block externalcss %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="{% static 'vendors/dataTables/datatables.min.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-content fade-in-up">
+
+                <div class="add-user">
+                    <a href="" id="add_user"><i class="fas fa-user-plus"></i> Add User</a>
+                </div>
+
+                <div class="ibox ibox-fullheight">
+                    <div class="flexbox mb-4">
+                            <div class="flexbox pt-4 pl-4">
+                                <label class="mb-0 mr-2">Type:</label>
+                                <select class="selectpicker show-tick form-control" id="type-filter" title="Please select" data-style="btn-solid" data-width="150px">
+                                    <option value="">All</option>
+                                    <option>Shipped</option>
+                                    <option>Completed</option>
+                                    <option>Pending</option>
+                                    <option>Canceled</option>
+                                </select>
+                            </div>
+                            <div class="input-group-icon input-group-icon-left mr-3 pt-4 pr-4">
+                                <span class="input-icon input-icon-right font-16 pt-4"><i class="ti-search"></i></span>
+                                <input class="form-control form-control-rounded form-control-solid" id="key-search" type="text" placeholder="Search ...">
+                            </div>
+                        </div>
+                    <div class="table-responsive row">
+                            <table class="table table-bordered table-hover" id="datatable">
+                                <thead class="thead-default thead-lg">
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Username</th>
+                                        <th>Salt</th>
+                                        <th>Hashed Password</th>
+                                        <th>First_Name</th>
+                                        <th>Last_Name</th>
+                                        <th>Email</th>
+                                        <th>is_superuser</th>
+                                        <th>is_active</th>
+                                        <th class="no-sort">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            <footer class="page-footer">
+                <div class="font-13">2018 © <b>Adminca</b> - Save your time, choose the best</div>
+                <div>
+                    <a class="px-3 pl-4" href="http://themeforest.net/item/adminca-responsive-bootstrap-4-3-angular-4-admin-dashboard-template/20912589" target="_blank">Purchase</a>
+                    <a class="px-3" href="http://admincast.com/adminca/documentation.html" target="_blank">Docs</a>
+                </div>
+                <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
+            </footer>
+
+            {% include 'user/modals/create_user_modal.html' %}
+
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksearchbar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}
+    <!-- PAGE LEVEL PLUGINS-->
+
+{% block externaljs %}
+    <script src="{% static 'js/user/modals/modal.js' %}"></script>
+    <script src="{% static 'vendors/dataTables/datatables.min.js' %}"></script>
+    <script src="{% static 'js/user/user_script.js' %}"></script>
+{% endblock %}
