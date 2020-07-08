@@ -32,15 +32,15 @@ function toggleEditModal(data){
         edit_user_modal.style.display = "none"
     }
     else{
-        edit_user_modal.querySelector("#first_name").value = data.first_name;
-        edit_user_modal.querySelector("#last_name").value = data.last_name;
-        edit_user_modal.querySelector("#user_name").value = data.user_name;
-        edit_user_modal.querySelector("#email").value = data.email;
+        edit_user_modal.querySelector("#edit_first_name").value = data.first_name;
+        edit_user_modal.querySelector("#edit_last_name").value = data.last_name;
+        edit_user_modal.querySelector("#edit_user_name").value = data.user_name;
+        edit_user_modal.querySelector("#edit_email").value = data.email;
         console.log($("input[name=is_superuser]:checked").value);
-        const is_superuser = typeof data.is_superuser
-        console.log(is_superuser)
-        edit_user_modal.querySelector("input[name='is_active']").value = data.is_active;
+        const is_superuser = data.is_superuser.toString()[0].toUpperCase() + data.is_superuser.toString().slice(1)
+        const is_active = data.is_active.toString()[0].toUpperCase() + data.is_active.toString().slice(1)
+        $("input[name='is_superuser'][value="+is_superuser+"]").prop('checked', true);
+        $("input[name='is_active'][value="+is_active+"]").prop('checked', true)
         edit_user_modal.style.display = "flex"
     }
-
 }
