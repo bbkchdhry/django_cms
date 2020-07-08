@@ -1,7 +1,3 @@
-function datatables(){
-
-}
-
 $.ajax({
     url: 'list/',
     type: 'get',
@@ -117,7 +113,12 @@ function delete_user(data){
 function update_user(data){
     $.ajax({
         url: 'edit/'+data,
-        type: "put",
+        type: "get",
         dataType: "json",
+        success: function (data){
+            toggleEditModal(data);
+            console.log("Data is: ")
+            console.log(data)
+        }
     })
 }

@@ -51,12 +51,13 @@ class user_view_detail(APIView):
             return Response({'error': 'User does not exist'}, status=status.HTTP_404_NOT_FOUND)
 
 
-    # def put(self, request, id):
-    #     instance = User.objects.get(id=id)
-    #     print("instance is: ")
-    #     print(model_to_dict(instance))
+    def get(self, request, id):
+        instance = User.objects.get(id=id)
+        print(model_to_dict(instance))
+        serializer = UserSerializers(instance)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
-def delete(self, request, id):
-    instance = self.get_object(id)
-    instance.delete()
-    return Response(status=status.HTTP_204_NO_CONTENT)
+    def delete(self, request, id):
+        instance = self.get_object(id)
+        instance.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

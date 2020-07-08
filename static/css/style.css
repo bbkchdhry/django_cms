@@ -12,7 +12,8 @@
 }
 
 /* modal */
-.user_modal{
+.user_modal,
+.edit_user_modal{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -29,7 +30,8 @@
     justify-content: flex-start;
 }
 
-.modal_container{
+.modal_container,
+.edit_modal_container{
     top: 60px;
     position: relative;
     background: #FFFFFF;
@@ -42,7 +44,8 @@
     overflow: auto;
 }
 
-.modal_container_close{
+.modal_container_close,
+.edit_modal_container_close{
     position: absolute;
     top: 0;
     right: 0;
