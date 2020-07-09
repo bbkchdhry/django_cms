@@ -19,7 +19,7 @@ from django.conf.urls import url, include
 from apps.login import views
 
 urlpatterns = [
-    path('login/', include('apps.login.urls')),
+    path('', include('apps.login.urls')),
     path('dashboard/', views.login_validate.as_view(), name="dashboard"),
     path('profile/', views.profile, name="profile"),
     path('dashboard/users/', include('apps.account.urls')),
