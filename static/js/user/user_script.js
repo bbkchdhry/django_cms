@@ -20,7 +20,7 @@ $.ajax({
                       <td>${d.is_active}</td>
                       <td>
                          <a href="#" onclick="delete_user(${d.id})" class="text-muted font-16" style="margin-right: 10px" id="delete_btn"><i class="fas fa-trash-alt"></i></a>
-                         <a href="#" onclick="update_user(${d.id});" class="text-muted font-16" id="edit_btn"><i class="far fa-edit"></i></a>
+                         <a href="#" onclick="get_edit_modal(${d.id});" class="text-muted font-16" id="edit_btn"><i class="far fa-edit"></i></a>
                      </td>
                   </tr>    
             `
@@ -110,7 +110,7 @@ function delete_user(data){
     }
 }
 
-function update_user(data){
+function get_edit_modal(data){
     $.ajax({
         url: 'edit/'+data,
         type: "get",
@@ -122,3 +122,29 @@ function update_user(data){
         }
     })
 }
+
+$(document).on("submit", "#edit_user", function(e){
+    console.log("editing.....")
+    let userId = e.target.elements[1].value
+    console.log(e.target.elements[1].value)
+    $.ajax({
+        url: 'edit/'+userId,
+        type: "put",
+        dataType: "json",
+        data: {
+            first_name: $("#edit_first_name").val(),
+            last_name: $("#edit_last_name").val(),
+            user_name: $("#edit_user_name").val(),
+            email: $("#edit_email").val(),
+            is_superuser: $(".edit_is_superuser input[name='is_superuser']:checked").val(),
+            is_active: $(".edit_is_active input[name='is_active']:checked").val(),
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+            action: "put"
+        },
+        success: function(){
+            $(".edit_user_modal").hide();
+            $("#datatable").DataTable().reload();
+        }
+
+    })
+})

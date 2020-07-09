@@ -21,7 +21,7 @@ from apps.account.views import users_page
 
 urlpatterns = [
     path('login/', include('apps.login.urls')),
-    path('dashboard/', views.login, name="dashboard"),
+    path('dashboard/', views.login_validate.as_view(), name="dashboard"),
     path('profile/', views.profile, name="profile"),
     path('dashboard/users/', include('apps.account.urls'))
 ]

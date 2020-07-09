@@ -11,6 +11,14 @@
             <span class="auth-head-icon"><i class="la la-user"></i></span>
         </div>
         <form class="ibox-body" id="login-form" action="{% url 'dashboard' %}" method="POST">{% csrf_token %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ msg }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
             <h4 class="font-strong text-center mb-5">LOG IN</h4>
             <div class="form-group mb-4">
                 <input class="form-control form-control-line" type="text" name="email" placeholder="Email">
@@ -27,7 +35,7 @@
                 <a class="text-primary" href="forgot_password.html">Forgot password?</a>
             </div>
             <div class="text-center mb-4">
-                <button class="btn btn-primary btn-rounded btn-block">LOGIN</button>
+                <button type="submit" class="btn btn-primary btn-rounded btn-block">LOGIN</button>
             </div>
         </form>
     </div>

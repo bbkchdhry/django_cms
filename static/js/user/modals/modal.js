@@ -32,6 +32,7 @@ function toggleEditModal(data){
         edit_user_modal.style.display = "none"
     }
     else{
+        edit_user_modal.querySelector("#userId").value = data.id;
         edit_user_modal.querySelector("#edit_first_name").value = data.first_name;
         edit_user_modal.querySelector("#edit_last_name").value = data.last_name;
         edit_user_modal.querySelector("#edit_user_name").value = data.user_name;

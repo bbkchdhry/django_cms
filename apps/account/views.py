@@ -52,10 +52,28 @@ class user_view_detail(APIView):
 
 
     def get(self, request, id):
-        instance = User.objects.get(id=id)
+        instance = self.get_object(id)
         print(model_to_dict(instance))
         serializer = UserSerializers(instance)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+    def put(self, request, id):
+        instance = self.get_object(id)
+        data = request.data
+        print("instance is: ")
+        print(model_to_dict(instance))
+        print("data is: ")
+        print(data)
+        serializer = UserSerializers(data=data, instance=instance, partial=True)
+        if serializer.is_valid():
+            print("Valid......")
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        elif serializer.errors:
+            print("Errors.....")
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
     def delete(self, request, id):
         instance = self.get_object(id)
