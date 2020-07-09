@@ -39,7 +39,6 @@ class login_validate(APIView):
             request.session['username']=user.user_name
             context = {
                 'title': 'Dashboard',
-                'user': user.user_name
             }
             return render(request, 'index.html', context)
         elif serializer.errors:
@@ -49,10 +48,8 @@ class login_validate(APIView):
 
     @my_login_required
     def get(self, request):
-        user = request.session.get('username')
         context = {
             'title': 'Dashboard',
-            'user': user
         }
         return render(request, 'index.html', context)
 
