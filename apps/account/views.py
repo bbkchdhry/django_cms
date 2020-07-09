@@ -1,5 +1,5 @@
 from django.forms import model_to_dict
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
@@ -12,12 +12,18 @@ from .hashing import get_salt, hash_string
 from rest_framework import HTTP_HEADER_ENCODING
 
 # Create your views here.
-def users_page(request):
-    form = UserForm()
-    context = {
-        'form': form
-    }
-    return render(request, 'user/users.html', context)
+from ..login.decorators import my_login_required
+
+
+class user_page(APIView):
+    @my_login_required
+    def get(self, request):
+        form = UserForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'user/users.html', context)
+
 
 class user_view(APIView):
     print("getting......")

@@ -17,11 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 from apps.login import views
-from apps.account.views import users_page
 
 urlpatterns = [
     path('login/', include('apps.login.urls')),
     path('dashboard/', views.login_validate.as_view(), name="dashboard"),
     path('profile/', views.profile, name="profile"),
-    path('dashboard/users/', include('apps.account.urls'))
+    path('dashboard/users/', include('apps.account.urls')),
+    path('logout/', views.logout.as_view(), name="logout")
 ]
