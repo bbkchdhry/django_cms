@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="{% static 'vendors/dataTables/datatables.min.css' %}" rel="stylesheet" />
 {% endblock %}
-
 {% block content %}
     <div class="page-wrapper">
         <!-- START HEADER-->
@@ -17,8 +16,8 @@
             <!-- START PAGE CONTENT-->
             <div class="page-content fade-in-up">
 
-                <div class="add-user">
-                    <a href="" id="add_user"><i class="fas fa-user-plus"></i> Add User</a>
+                <div class="add-roles">
+                    <a href="" id="add_roles"><i class="fas fa-user-plus"></i> Add Roles</a>
                 </div>
 
                 <div class="ibox ibox-fullheight">
@@ -39,18 +38,11 @@
                             </div>
                         </div>
                     <div class="table-responsive row">
-                            <table class="table table-bordered table-hover" id="user_datatable">
+                            <table class="table table-bordered table-hover" id="role_datatable">
                                 <thead class="thead-default thead-lg">
                                     <tr>
                                         <th>Id</th>
-                                        <th>Username</th>
-                                        <th>Salt</th>
-                                        <th>Hashed Password</th>
-                                        <th>First_Name</th>
-                                        <th>Last_Name</th>
-                                        <th>Email</th>
-                                        <th>is_superuser</th>
-                                        <th>is_active</th>
+                                        <th>Name</th>
                                         <th class="no-sort">Action</th>
                                     </tr>
                                 </thead>
@@ -61,10 +53,10 @@
                 </div>
             </div>
             <!-- END PAGE CONTENT-->
-            {% include 'static_element/footer.html' %}
+           {% include 'static_element/footer.html' %}
 
-            {% include 'user/modals/create_user_modal.html' %}
-            {% include 'user/modals/update_user_modal.html' %}
+            {% include 'roles/modals/create_role_modal.html' %}
+            {% include 'roles/modals/update_role_modal.html' %}
         </div>
     </div>
     <!-- START SEARCH PANEL-->
@@ -84,12 +76,10 @@
     <!-- End New question dialog-->
     <!-- QUICK SIDEBAR-->
     {% include 'static_element/quicksearchbar.html' %}
-    <!-- END QUICK SIDEBAR-->
 {% endblock %}
-    <!-- PAGE LEVEL PLUGINS-->
 
 {% block externaljs %}
-    <script src="{% static 'js/user/modals/user_modal.js' %}"></script>
+    <script src="{% static 'js/roles/modals/roles_modal.js' %}"></script>
     <script src="{% static 'vendors/dataTables/datatables.min.js' %}"></script>
-    <script src="{% static 'js/user/user_script.js' %}"></script>
+    <script src="{% static 'js/roles/roles_script.js' %}"></script>
 {% endblock %}

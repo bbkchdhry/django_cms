@@ -1,19 +1,25 @@
-const modal = document.querySelector(".user_modal")
-const edit_user_modal = document.querySelector(".edit_user_modal")
+const modal = document.querySelector(".user_modal");
+const edit_user_modal = document.querySelector(".edit_user_modal");
 
 $("#add_user").on("click", function (e){
     e.preventDefault();
     console.log("Add User....")
-    toggleModal();
+    toggleUserModal();
 })
 
 
 $(".modal_container_close").on("click", function (e){
-  toggleModal();
+  toggleUserModal();
   document.querySelector("#post_user").reset();
 })
 
-function toggleModal(){
+$(modal).on("click", function(event){
+     if(event.currentTarget === event.target){
+        toggleUserModal();
+    }
+})
+
+function toggleUserModal(){
     if(modal.style.display === "flex"){
         modal.style.display = "none"
     }
@@ -23,11 +29,17 @@ function toggleModal(){
 }
 
 $(".edit_modal_container_close").on("click", function (e){
-  toggleEditModal();
+  toggleUserEditModal();
   document.querySelector("#edit_user").reset();
 })
 
-function toggleEditModal(data){
+$(edit_user_modal).on("click", function(event){
+     if(event.currentTarget === event.target){
+        toggleUserEditModal();
+    }
+});
+
+function toggleUserEditModal(data){
     if(edit_user_modal.style.display === "flex"){
         edit_user_modal.style.display = "none"
     }

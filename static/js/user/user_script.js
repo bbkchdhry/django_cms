@@ -1,55 +1,56 @@
 $.ajax({
-    url: 'list/',
-    type: 'get',
-    dataType: 'json',
-    success: function (data){
-        let rows = ''
-        console.log("data is: ")
-        console.log(data)
-        data.forEach(d => {
-            rows += `
-                  <tr>
-                      <td>${d.id}</td>
-                      <td>${d.user_name}</td>
-                      <td style="word-break: break-all">${d.salt}</td>
-                      <td style="word-break: break-all">${d.hashed_password}</td>
-                      <td>${d.first_name}</td>
-                      <td>${d.last_name}</td>
-                      <td>${d.email}</td>
-                      <td>${d.is_superuser}</td>
-                      <td>${d.is_active}</td>
-                      <td>
-                         <a href="#" onclick="delete_user(${d.id})" class="text-muted font-16" style="margin-right: 10px" id="delete_btn"><i class="fas fa-trash-alt"></i></a>
-                         <a href="#" onclick="get_edit_modal(${d.id});" class="text-muted font-16" id="edit_btn"><i class="far fa-edit"></i></a>
-                     </td>
-                  </tr>    
-            `
-        })
-        tableBody = $("table tbody");
-        tableBody.append(rows);
-        $(function(){
-             $('#datatable').DataTable({
-            pageLength: 10,
-            fixedHeader: true,
-            responsive: true,
-            "sDom": 'rtip',
-            columnDefs: [{
-                targets: 'no-sort',
-                orderable: false
-            }]
-        });
+url: 'list/',
+type: 'get',
+dataType: 'json',
+success: function (data){
+    let rows = ''
+    console.log("data is: ")
+    console.log(data)
+    data.forEach(d => {
+        rows += `
+              <tr id="user-${d.id}">
+                  <td>${d.id}</td>
+                  <td>${d.user_name}</td>
+                  <td style="word-break: break-all">${d.salt}</td>
+                  <td style="word-break: break-all">${d.hashed_password}</td>
+                  <td>${d.first_name}</td>
+                  <td>${d.last_name}</td>
+                  <td>${d.email}</td>
+                  <td>${d.is_superuser}</td>
+                  <td>${d.is_active}</td>
+                  <td>
+                     <a onclick="delete_user(${d.id})" class="text-muted font-16" style="margin-right: 10px" id="delete_btn"><i class="fas fa-trash-alt"></i></a>
+                     <a onclick="get_edit_modal(${d.id});" class="text-muted font-16" id="edit_btn"><i class="far fa-edit"></i></a>
+                 </td>
+              </tr>
+        `
+    })
+    let tableBody = $("table tbody");
+    tableBody.append(rows);
+    $(function(){
+         $('#user_datatable').DataTable({
+        pageLength: 10,
+        fixedHeader: true,
+        responsive: true,
+        "sDom": 'rtip',
+        columnDefs: [{
+            targets: 'no-sort',
+            orderable: false
+        }]
+    });
 
-        var table = $('#datatable').DataTable();
-        $('#key-search').on('keyup', function() {
-            table.search(this.value).draw();
-        });
-        $('#type-filter').on('change', function() {
-            table.column(4).search($(this).val()).draw();
-        });
-        })
-    }
+    var table = $('#user_datatable').DataTable();
+    $('#key-search').on('keyup', function() {
+        table.search(this.value).draw();
+    });
+    $('#type-filter').on('change', function() {
+        table.column(4).search($(this).val()).draw();
+    });
+    })
+}
 
 });
+
 
 $(document).on("submit", "#post_user", function (e){
     e.preventDefault();
@@ -84,9 +85,9 @@ $(document).on("submit", "#post_user", function (e){
                       <td>${data.is_superuser}</td>
                       <td>${data.is_active}</td>
                   <td>
-                     <a class="text-muted font-16" style="margin-right: 10px" id="delete_btn"><i class="fas fa-trash-alt"></i></a>
-                     <a class="text-muted font-16" id="edit_btn"><i class="far fa-edit"></i></a>
-                 </td>
+                     <a href="#" onclick="delete_user(${data.id})" class="text-muted font-16" style="margin-right: 10px" id="delete_btn"><i class="fas fa-trash-alt"></i></a>
+                     <a href="#" onclick="get_edit_modal(${data.id});" class="text-muted font-16" id="edit_btn"><i class="far fa-edit"></i></a>
+                  </td>
                 </tr>    
               `;
               tableBody = $("table tbody");
@@ -104,7 +105,7 @@ function delete_user(data){
             type: "delete",
             dataType: "json",
             success: function (){
-
+                $(`#user-${data}`).hide();
             }
         })
     }
@@ -116,20 +117,19 @@ function get_edit_modal(data){
         type: "get",
         dataType: "json",
         success: function (data){
-            toggleEditModal(data);
-            console.log("Data is: ")
-            console.log(data)
+            toggleUserEditModal(data);
         }
     })
 }
 
 $(document).on("submit", "#edit_user", function(e){
+    e.preventDefault();
     console.log("editing.....")
     let userId = e.target.elements[1].value
     console.log(e.target.elements[1].value)
     $.ajax({
         url: 'edit/'+userId,
-        type: "put",
+        type: "post",
         dataType: "json",
         data: {
             first_name: $("#edit_first_name").val(),

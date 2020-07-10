@@ -23,5 +23,6 @@ urlpatterns = [
     path('dashboard/', views.login_validate.as_view(), name="dashboard"),
     path('profile/', views.profile, name="profile"),
     path('dashboard/users/', include('apps.account.urls')),
+    path('dashboard/roles/', include('apps.roles.urls')),
     path('logout/', views.logout.as_view(), name="logout")
 ]

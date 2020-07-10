@@ -16,23 +16,28 @@ from ..login.decorators import my_login_required
 
 
 class user_page(APIView):
+    """View to render user.html page"""
     @my_login_required
     def get(self, request):
         form = UserForm()
         context = {
-            'form': form
+            'form': form,
+            'title': "Dashboard - User"
         }
         return render(request, 'user/users.html', context)
 
 
 class user_view(APIView):
-    print("getting......")
+    """APIView of the user..."""
     def get(self, request):
+        """Get request to list all the users..."""
+        print("getting user view")
         users = User.objects.all()
         user_serializer = UserSerializers(users, many=True)
         return Response(user_serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
+        """Post request to create new users..."""
         print("posting......")
         data = request.data
         print("data is......")
@@ -50,7 +55,9 @@ class user_view(APIView):
 
 
 class user_view_detail(APIView):
+    """User APIView to retrieve specific user"""
     def get_object(self, id):
+        """Returns user of specific id...."""
         try:
             return User.objects.get(id=id)
         except User.DoesNotExist as e:
@@ -58,13 +65,15 @@ class user_view_detail(APIView):
 
 
     def get(self, request, id):
+        """Get request to retrieve user of specific user id..."""
+        print("getting specific.....")
         instance = self.get_object(id)
         print(model_to_dict(instance))
         serializer = UserSerializers(instance)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-
-    def put(self, request, id):
+    def post(self, request, id):
+        """Put request to update the user of specific id...."""
         instance = self.get_object(id)
         data = request.data
         print("instance is: ")
@@ -82,6 +91,7 @@ class user_view_detail(APIView):
 
 
     def delete(self, request, id):
+        """Delete request to remove the user of specific id..."""
         instance = self.get_object(id)
         instance.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

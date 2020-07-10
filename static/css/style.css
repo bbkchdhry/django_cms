@@ -1,10 +1,12 @@
-.add-user{
+.add-user,
+.add-roles{
     margin-top: 30px;
     margin-bottom: 50px;
     height: 30px;
 }
 
-.add-user a{
+.add-user a,
+.add-roles a{
     width: 30%;
     background: #919ca8;
     padding: 20px 30px;
@@ -13,7 +15,9 @@
 
 /* modal */
 .user_modal,
-.edit_user_modal{
+.role_modal,
+.edit_user_modal,
+.edit_role_modal{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
