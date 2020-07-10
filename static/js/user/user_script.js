@@ -123,7 +123,6 @@ function get_edit_modal(data){
 }
 
 $(document).on("submit", "#edit_user", function(e){
-    e.preventDefault();
     console.log("editing.....")
     let userId = e.target.elements[1].value
     console.log(e.target.elements[1].value)
