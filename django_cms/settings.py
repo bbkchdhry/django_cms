@@ -30,6 +30,7 @@ DEBUG = os.getenv("debug")
 
 ALLOWED_HOSTS = os.getenv("allowed_hosts").split(',')
 
+SESSION_COOKIE_NAME=os.getenv("SESSION_COOKIE_NAME")
 
 # Application definition
 
