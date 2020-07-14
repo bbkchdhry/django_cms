@@ -1,5 +1,6 @@
 from django import forms
-from .models import User
+from .models import User, User_role
+from apps.roles.models import Role
 
 class UserForm(forms.ModelForm):
     is_superuser = forms.BooleanField(initial=False,
@@ -13,4 +14,14 @@ class UserForm(forms.ModelForm):
                                                                ))
     class Meta:
         model = User
+        fields = "__all__"
+
+
+class UserRolesForm(forms.ModelForm):
+    roles = forms.ModelMultipleChoiceField(
+        queryset=Role.objects,
+        widget=forms.CheckboxSelectMultiple,
+        required=True)
+    class Meta:
+        model = User_role
         fields = "__all__"

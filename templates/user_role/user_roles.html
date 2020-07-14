@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block externalcss %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="{% static 'vendors/dataTables/datatables.min.css' %}" rel="stylesheet" />
+{% endblock %}
+{% block content %}
+       <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-content fade-in-up">
+
+                <div class="add-roles">
+                    <a href="" id="add_user_roles"><i class="fas fa-user-plus"></i> Add User Roles</a>
+                </div>
+
+                <div class="ibox ibox-fullheight">
+                    <div class="flexbox mb-4">
+                            <div class="flexbox pt-4 pl-4">
+                                <label class="mb-0 mr-2">Type:</label>
+                                <select class="selectpicker show-tick form-control" id="type-filter" title="Please select" data-style="btn-solid" data-width="150px">
+                                    <option value="">All</option>
+                                    <option>Shipped</option>
+                                    <option>Completed</option>
+                                    <option>Pending</option>
+                                    <option>Canceled</option>
+                                </select>
+                            </div>
+                            <div class="input-group-icon input-group-icon-left mr-3 pt-4 pr-4">
+                                <span class="input-icon input-icon-right font-16 pt-4"><i class="ti-search"></i></span>
+                                <input class="form-control form-control-rounded form-control-solid" id="key-search" type="text" placeholder="Search ...">
+                            </div>
+                        </div>
+                    <div class="table-responsive row">
+                            <table class="table table-bordered table-hover" id="user_roles_datatable">
+                                <thead class="thead-default thead-lg">
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>User</th>
+                                        <th>Roles</th>
+                                        <th class="no-sort">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+            {% include 'user_role/modals/create_user_roles_modal.html' %}
+            {% include 'user_role/modals/update_user_roles_modal.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksearchbar.html' %}
+{% endblock %}
+{% block externaljs %}
+    <script src="{% static 'vendors/dataTables/datatables.min.js' %}"></script>
+    <script src="{% static 'js/user_role/modals/uesr_roles_modal.js' %}"></script>
+    <script src="{% static 'js/user_role/user_roles_script.js' %}"></script>
+{% endblock %}

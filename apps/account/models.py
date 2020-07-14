@@ -1,5 +1,5 @@
 from django.db import models
-
+from apps.roles.models import Role
 # Create your models here.
 class User(models.Model):
     class Meta:
@@ -13,3 +13,14 @@ class User(models.Model):
     email = models.EmailField(max_length=255, blank=True)
     is_superuser = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user_name
+
+
+class User_role(models.Model):
+    class Meta:
+        db_table = "user_roles"
+
+    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
+    roles = models.ManyToManyField(Role)

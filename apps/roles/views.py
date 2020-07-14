@@ -19,7 +19,7 @@ class roles_page(APIView):
     @my_login_required
     def get(self, request):
         serializer = RoleSerializer()
-        return Response({'serializer': serializer, 'style':self.style})
+        return Response({'serializer': serializer, 'style':self.style, 'title': 'Dashboard-Role'})
 
 
 class roles_view(APIView):

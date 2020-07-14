@@ -6,3 +6,6 @@ class Role(models.Model):
         db_table = "role"
 
     name = models.CharField(max_length=255, blank=False)
+
+    def __str__(self):
+        return self.name

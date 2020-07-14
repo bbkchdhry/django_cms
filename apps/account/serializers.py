@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import User
+from .models import User, User_role
+
 
 class UserSerializers(serializers.ModelSerializer):
     class Meta:
@@ -9,3 +10,9 @@ class UserSerializers(serializers.ModelSerializer):
             "salt": {'read_only': True},
             "hashed_password": {'read_only': True}
         }
+
+class UserRolesSerializers(serializers.ModelSerializer):
+
+    class Meta:
+        model = User_role
+        fields = "__all__"

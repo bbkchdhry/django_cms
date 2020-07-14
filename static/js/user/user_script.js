@@ -98,14 +98,14 @@ $(document).on("submit", "#post_user", function (e){
 })
 
 function delete_user(data){
-    result = confirm(`Do you want to delete user id ${data} ?`)
+    let result = confirm(`Do you want to delete user id ${data} ?`)
     if(result){
         $.ajax({
             url: 'delete/'+data,
             type: "delete",
             dataType: "json",
             success: function (){
-                $(`#user-${data}`).hide();
+                $(`#user-${data}`).remove();
             }
         })
     }
@@ -124,7 +124,7 @@ function get_edit_modal(data){
 
 $(document).on("submit", "#edit_user", function(e){
     console.log("editing.....")
-    let userId = e.target.elements[1].value
+    let userId = e.target.elements[1].value;
     console.log(e.target.elements[1].value)
     $.ajax({
         url: 'edit/'+userId,
