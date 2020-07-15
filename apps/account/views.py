@@ -36,7 +36,7 @@ class user_view(APIView):
         print("getting user view")
         users = User.objects.all()
         user_serializer = UserSerializers(users, many=True)
-        return Response(user_serializer.data, status=status.HTTP_200_OK)
+        return Response({"data": user_serializer.data}, status=status.HTTP_200_OK)
 
     def post(self, request):
         """Post request to create new users..."""
@@ -126,7 +126,7 @@ class user_roles_view(APIView):
             }
             list_data.append(data)
 
-        return Response(list_data, status=status.HTTP_200_OK)
+        return Response({"data": list_data}, status=status.HTTP_200_OK)
 
     def post(self, request):
         data = request.data
@@ -179,6 +179,7 @@ class user_roles_view_detail(APIView):
 
 
     def delete(self, request, id):
+        print("deleting....")
         instance = self.get_object(id)
         print(instance)
         instance.delete()

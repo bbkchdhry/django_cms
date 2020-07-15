@@ -1,48 +1,40 @@
-$.ajax({
-    url: "list/",
-    type: "get",
-    dataType: "json",
-    success: function(data){
-        console.log(data)
-        let rows = ""
-        data.forEach(d=>{
-            rows += `
-                <tr id="user_roles_${d.id}">
-                    <td>${d.id}</td>
-                    <td>${d.user}</td>
-                    <td>${d.roles}</td>
-                    <td>
-                        <a onclick="delete_user_roles(${d.id})" class="text-muted font-16" style="margin-right: 10px" id="delete_btn"><i class="fas fa-trash-alt"></i></a>
-                        <a onclick="get_user_role_edit_modal(${d.id})" class="text-muted font-16" id="edit_btn"><i class="far fa-edit"></i></a>
-                    </td>
-                </tr>
-            `
-        })
-        let tableBody = $("table tbody");
-        tableBody.append(rows)
-        $(function(){
-             $('#user_roles_datatable').DataTable({
+let datatables =
+        $('#user_roles_datatable').DataTable({
             pageLength: 10,
             fixedHeader: true,
             responsive: true,
+            ajax: {
+              url: "list/",
+              type: "GET",
+            },
+            columns: [
+                {"data": "id"},
+                {"data": "user"},
+                {"data": "roles"},
+                {
+                    data: null,
+                    className: "center",
+                    defaultContent: '<a onclick="delete_user_roles(this)" class="text-muted font-16" style="margin-right: 10px" id="delete_btn"><i class="fas fa-trash-alt"></i></a> ' +
+                                    '<a onclick="get_user_role_edit_modal(this)" class="text-muted font-16" id="edit_btn"><i class="far fa-edit"></i></a>'
+                }
+            ],
             "sDom": 'rtip',
             columnDefs: [{
                 targets: 'no-sort',
                 orderable: false
-            }]
-        });
+            }],
+    });
 
-        var table = $('#user_roles_datatable').DataTable();
-        $('#key-search').on('keyup', function() {
-            table.search(this.value).draw();
-        });
-        $('#type-filter').on('change', function() {
-            table.column(4).search($(this).val()).draw();
-        });
-        })
-        }
-})
+$('#searchbar').on('keyup', function() {
+    datatables.search(this.value).draw();
+});
 
+$('#key-search').on('keyup', function() {
+    datatables.search(this.value).draw();
+});
+$('#type-filter').on('change', function() {
+    datatables.column(4).search($(this).val()).draw();
+});
 
 $(document).on("submit", "#post_user_roles", function(e){
     e.preventDefault();
@@ -59,31 +51,27 @@ $(document).on("submit", "#post_user_roles", function(e){
             user: $("#user").val(),
             roles: roles,
             csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
-            action: "post"
+            action: "post",
         },
         success: function (data){
+            toggleUserRolesModal();
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: `${data.user} assigned with role ${data.roles}`,
+                showConfirmButton: false,
+                timer: 1500
+            })
             document.querySelector("#post_user_roles").reset();
-            let row = ""
-            row += `
-               <tr id="user_roles_${data.id}">
-                    <td>${data.id}</td>
-                    <td>${data.user}</td>
-                    <td>${data.roles}</td>
-                    <td>
-                        <a onclick="delete_user_roles(${data.id})" class="text-muted font-16" style="margin-right: 10px" id="delete_btn"><i class="fas fa-trash-alt"></i></a>
-                        <a onclick="" class="text-muted font-16" id="edit_btn"><i class="far fa-edit"></i></a>
-                    </td>
-                </tr>
-            `
-            let tableBody = $("table tbody");
-            tableBody.append(row)
+            datatables.ajax.reload();
         }
     })
 })
 
 function get_user_role_edit_modal(data){
+    let user_roleId = $(data).parent().siblings()[0].textContent;
     $.ajax({
-        url: "edit/"+data,
+        url: "edit/"+user_roleId,
         type: "get",
         dataType: "json",
         success: function(data){
@@ -93,17 +81,35 @@ function get_user_role_edit_modal(data){
 }
 
 function delete_user_roles(data){
-    let result = confirm(`Do you want to delete user id ${data} ?`)
-    if(result){
-        $.ajax({
-            url: "delete/"+data,
-            type: "delete",
-            dataType: "json",
-            success: function(){
-                $(`#user_roles_${data}`).remove();
-            }
-        });
-    }
+    let user_roleId = $(data).parent().siblings()[0].textContent;
+    let user = $(data).parent().siblings()[1].textContent;
+    Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!',
+        }).then((result) => {
+          if (result.value) {
+              Swal.fire(
+              'Deleted!',
+              `${user} role has been deleted.`,
+              'success'
+            )
+              $.ajax({
+                url: "delete/"+user_roleId,
+                type: "delete",
+                dataType: "json",
+                success: function(){
+                    $(data).parent().parent().remove();
+                    datatables.ajax.reload();
+                }
+            });
+
+          }
+        })
 }
 
 $(document).on("submit", "#edit_user_roles", function (e){
@@ -126,6 +132,10 @@ $(document).on("submit", "#edit_user_roles", function (e){
             roles: roles,
             csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
             action: "put"
+        },
+        success: function (){
+            toggleUserRolesEditModal();
+            datatables.ajax.reload();
         }
     })
 })

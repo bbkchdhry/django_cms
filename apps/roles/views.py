@@ -26,10 +26,9 @@ class roles_view(APIView):
     def get(self, request):
         roles = Role.objects.all()
         roles_serializer = RoleSerializer(roles, many=True)
-        return Response(roles_serializer.data, status=status.HTTP_200_OK)
+        return Response({"data":roles_serializer.data}, status=status.HTTP_200_OK)
 
     def post(self, request):
-
         data = request.data
         print("Role data is: ")
         print(data)

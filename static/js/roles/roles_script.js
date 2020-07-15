@@ -1,46 +1,38 @@
-$.ajax({
-    url: 'list/',
-    type: 'get',
-    dataType: 'json',
-    success: function (data){
-        let rows = ''
-        data.forEach(d=>{
-            rows += `
-                <tr id="role-${d.id}">
-                    <td>${d.id}</td>
-                    <td>${d.name}</td>
-                    <td>
-                        <a onclick="delete_role(${d.id})" class="text-muted font-16" style="margin-right: 10px" id="delete_btn"><i class="fas fa-trash-alt"></i></a>
-                        <a onclick="get_role_edit_modal(${d.id})" class="text-muted font-16" id="edit_btn"><i class="far fa-edit"></i></a>
-                    </td>
-                </tr>
-            
-            `
-        })
-        let tableBody = $("table tbody")
-        tableBody.append(rows)
-        $(function(){
-             $('#role_datatable').DataTable({
-            pageLength: 10,
-            fixedHeader: true,
-            responsive: true,
-            "sDom": 'rtip',
-            columnDefs: [{
-                targets: 'no-sort',
-                orderable: false
-            }]
-        });
+let datatables = $('#role_datatable').DataTable({
+    pageLength: 10,
+    fixedHeader: true,
+    responsive: true,
+    ajax: {
+      url: "list/",
+      type: "GET",
+    },
+    columns: [
+        {"data": "id"},
+        {"data": "name"},
+        {
+            data: null,
+            className: "center",
+            defaultContent: '<a href="javascript:void(0)" onclick="delete_role(this)" class="text-muted font-16" style="margin-right: 10px" id="delete_btn"><i class="fas fa-trash-alt"></i></a>' +
+                            '<a href="javascript:void(0)" onclick="get_role_edit_modal(this)" class="text-muted font-16" id="edit_btn"><i class="far fa-edit"></i></a>'
+        }
+    ],
+    "sDom": 'rtip',
+    columnDefs: [{
+        targets: 'no-sort',
+        orderable: false
+    }]
+});
 
-        var table = $('#role_datatable').DataTable();
-        $('#key-search').on('keyup', function() {
-            table.search(this.value).draw();
-        });
-        $('#type-filter').on('change', function() {
-            table.column(4).search($(this).val()).draw();
-        });
-        })
-    }
-})
+$('#searchbar').on('keyup', function() {
+    datatables.search(this.value).draw();
+});
+
+$('#key-search').on('keyup', function() {
+    datatables.search(this.value).draw();
+});
+$('#type-filter').on('change', function() {
+    datatables.column(4).search($(this).val()).draw();
+});
 
 $(document).on("submit", "#post_role", function (e){
     e.preventDefault();
@@ -54,44 +46,57 @@ $(document).on("submit", "#post_role", function (e){
             action: "post"
         },
         success: function(data){
+            toggleRoleModal();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: `${data.name} role has been created`,
+                showConfirmButton: false,
+                timer: 1500
+            })
             document.querySelector('#post_role').reset();
-            let row = ""
-
-            row += `
-                <tr>
-                    <td>${data.id}</td>
-                    <td>${data.name}</td>
-                    <td>
-                        <a href="#" onclick="" class="text-muted font-16" style="margin-right: 10px" id="delete_btn"><i class="fas fa-trash-alt"></i></a>
-                        <a href="#" onclick="get_role_edit_modal(${data.id})" class="text-muted font-16" id="edit_btn"><i class="far fa-edit"></i></a>
-                    </td>
-                </tr>
-            
-            `
-            let tableBody = $("table tbody")
-            tableBody.append(row)
+            datatables.ajax.reload();
         }
     })
 })
 
 function delete_role(data){
-    let result = confirm(`Do you want to delete role id ${data} ?`);
-    if(result){
-        $.ajax({
-            url: "delete/"+data,
-            type: "delete",
-            dataType: "json",
-            success: function (){
-                $(`#role-${data}`).hide();
-            }
-        });
-    }
+    let roleId = $(data).parent().siblings()[0].textContent;
+    let role = $(data).parent().siblings()[1].textContent;
+    console.log(roleId)
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this! ",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it'
 
+    }).then(result=>{
+        if(result.value){
+            Swal.fire(
+                'Deleted!',
+                `Role ${role} has been deleted.`,
+                'success'
+            )
+            $.ajax({
+                url: "delete/"+roleId,
+                type: "delete",
+                dataType: "json",
+                success: function (){
+                    $(data).parent().parent().remove();
+                    datatables.ajax.reload();
+                }
+            })
+        }
+    })
 }
 
 function get_role_edit_modal(data){
+    let roleId = $(data).parent().siblings()[0].textContent;
     $.ajax({
-        url: "edit/"+data,
+        url: "edit/"+roleId,
         type: "get",
         dataType: "json",
         success: function(data){
@@ -102,6 +107,7 @@ function get_role_edit_modal(data){
 }
 
 $(document).on('submit', '#edit_role', function(e){
+    e.preventDefault();
     let roleId = e.target.elements[1].value;
     $.ajax({
         url: "edit/"+roleId,
@@ -114,6 +120,7 @@ $(document).on('submit', '#edit_role', function(e){
         },
         success: function (){
             $(".edit_role_modal").hide();
+            datatables.ajax.reload();
         }
     })
 })

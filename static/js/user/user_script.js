@@ -1,54 +1,61 @@
-$.ajax({
-url: 'list/',
-type: 'get',
-dataType: 'json',
-success: function (data){
-    let rows = ''
-    console.log("data is: ")
-    console.log(data)
-    data.forEach(d => {
-        rows += `
-              <tr id="user-${d.id}">
-                  <td>${d.id}</td>
-                  <td>${d.user_name}</td>
-                  <td style="word-break: break-all">${d.salt}</td>
-                  <td style="word-break: break-all">${d.hashed_password}</td>
-                  <td>${d.first_name}</td>
-                  <td>${d.last_name}</td>
-                  <td>${d.email}</td>
-                  <td>${d.is_superuser}</td>
-                  <td>${d.is_active}</td>
-                  <td>
-                     <a onclick="delete_user(${d.id})" class="text-muted font-16" style="margin-right: 10px" id="delete_btn"><i class="fas fa-trash-alt"></i></a>
-                     <a onclick="get_edit_modal(${d.id});" class="text-muted font-16" id="edit_btn"><i class="far fa-edit"></i></a>
-                 </td>
-              </tr>
-        `
-    })
-    let tableBody = $("table tbody");
-    tableBody.append(rows);
-    $(function(){
-         $('#user_datatable').DataTable({
-        pageLength: 10,
-        fixedHeader: true,
-        responsive: true,
-        "sDom": 'rtip',
-        columnDefs: [{
+let datatables =
+ $('#user_datatable').DataTable({
+     pageLength: 10,
+     fixedHeader: true,
+     responsive: true,
+     ajax: {
+       url: "list/",
+       type: "GET",
+     },
+     columns: [
+         {"data": "id"},
+         {"data": "user_name"},
+         {"data": "salt",},
+         {"data": "hashed_password"},
+         {"data": "first_name"},
+         {"data": "last_name"},
+         {"data": "email"},
+         {"data": "is_superuser"},
+         {"data": "is_active"},
+         {
+             data: null,
+             className: "center",
+             defaultContent: '<a href="javascript:void(0)" onclick="delete_user(this)" class="text-muted font-16" style="margin-right: 10px" id="delete_btn"><i class="fas fa-trash-alt"></i></a>' +
+                             '<a href="javascript:void(0)" onclick="get_edit_modal(this);" class="text-muted font-16" id="edit_btn"><i class="far fa-edit"></i></a>'
+
+         }
+     ],
+    "sDom": 'rtip',
+     columnDefs: [
+         {
             targets: 'no-sort',
             orderable: false
-        }]
-    });
+        }],
+     aoColumnDefs: [
+         {
+             aTargets: "salt",
+             fnCreatedCell: function (td) {
+                 $(td).css('word-break', 'break-all')
+             }
+         },
+         {
+             aTargets: "hashed_password",
+             fnCreatedCell: function(td){
+                 $(td).css('word-break', 'break-all')
+             }
+         }
+     ]
+});
 
-    var table = $('#user_datatable').DataTable();
-    $('#key-search').on('keyup', function() {
-        table.search(this.value).draw();
-    });
-    $('#type-filter').on('change', function() {
-        table.column(4).search($(this).val()).draw();
-    });
-    })
-}
+$('#searchbar').on('keyup', function() {
+    datatables.search(this.value).draw();
+});
 
+$('#key-search').on('keyup', function() {
+    datatables.search(this.value).draw();
+});
+$('#type-filter').on('change', function() {
+    datatables.column(4).search($(this).val()).draw();
 });
 
 
@@ -70,50 +77,56 @@ $(document).on("submit", "#post_user", function (e){
             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
             action: "post"
         },
-        success: function(data){
+        success: function(data) {
+            toggleUserModal();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: `${data.user_name} has been created`,
+                showConfirmButton: false,
+                timer: 1500
+            })
             document.querySelector("#post_user").reset();
-              let row = '';
-              row += `
-                <tr>
-                      <td>${data.id}</td>
-                      <td>${data.user_name}</td>
-                      <td style="word-break: break-all">${data.salt}</td>
-                      <td style="word-break: break-all">${data.hashed_password}</td>
-                      <td>${data.first_name}</td>
-                      <td>${data.last_name}</td>
-                      <td>${data.email}</td>
-                      <td>${data.is_superuser}</td>
-                      <td>${data.is_active}</td>
-                  <td>
-                     <a href="#" onclick="delete_user(${data.id})" class="text-muted font-16" style="margin-right: 10px" id="delete_btn"><i class="fas fa-trash-alt"></i></a>
-                     <a href="#" onclick="get_edit_modal(${data.id});" class="text-muted font-16" id="edit_btn"><i class="far fa-edit"></i></a>
-                  </td>
-                </tr>    
-              `;
-              tableBody = $("table tbody");
-              tableBody.append(row);
-
-            }
+            datatables.ajax.reload();
+        }
     })
 })
 
 function delete_user(data){
-    let result = confirm(`Do you want to delete user id ${data} ?`)
-    if(result){
-        $.ajax({
-            url: 'delete/'+data,
+    let userId = $(data).parent().siblings()[0].textContent;
+    let user = $(data).parent().siblings()[1].textContent;
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this! ",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: "#d33",
+        confirmButtonText: 'Yes, delete it',
+    }).then((result)=>{
+        if(result.value){
+            Swal.fire(
+                'Deleted!',
+                `User ${user} has been deleted.`,
+                'success'
+            )
+            $.ajax({
+            url: 'delete/'+userId,
             type: "delete",
             dataType: "json",
             success: function (){
-                $(`#user-${data}`).remove();
+                $(data).parent().parent().remove();
+                datatables.ajax.reload();
             }
         })
-    }
+        }
+    })
 }
 
 function get_edit_modal(data){
+    let userId = $(data).parent().siblings()[0].textContent;
     $.ajax({
-        url: 'edit/'+data,
+        url: 'edit/'+userId,
         type: "get",
         dataType: "json",
         success: function (data){
@@ -123,9 +136,9 @@ function get_edit_modal(data){
 }
 
 $(document).on("submit", "#edit_user", function(e){
+    e.preventDefault();
     console.log("editing.....")
     let userId = e.target.elements[1].value;
-    console.log(e.target.elements[1].value)
     $.ajax({
         url: 'edit/'+userId,
         type: "post",
@@ -142,7 +155,7 @@ $(document).on("submit", "#edit_user", function(e){
         },
         success: function(){
             $(".edit_user_modal").hide();
-            $("#datatable").DataTable().reload();
+            datatables.ajax.reload();
         }
 
     })
