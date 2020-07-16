@@ -104,7 +104,8 @@ class user_role_page(APIView):
     def get(self, request):
         form = UserRolesForm()
         context = {
-            "form": form
+            "form": form,
+            "title": "Dashboard - UserRoles"
         }
         return render(request, 'user_role/user_roles.html', context)
 
@@ -130,7 +131,6 @@ class user_roles_view(APIView):
 
     def post(self, request):
         data = request.data
-        print(data)
         serializer = UserRolesSerializers(data={'user': data["user"], 'roles': request.data.getlist("roles[]")})
         if serializer.is_valid():
             serializer.save()
