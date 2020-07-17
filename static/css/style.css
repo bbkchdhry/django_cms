@@ -73,3 +73,17 @@
     border-bottom: 1px solid red;
 }
 
+.nav-pills .nav-link-1.active {
+    background-color: #5c6bc0;
+    color: #fff
+}
+
+.nav-pills .nav-link-2.active {
+    background-color: #18c5a9;
+    color: #fff
+}
+
+.nav-pills .nav-link-3.active {
+    background-color: #5c6bc0;
+    color: #fff
+}

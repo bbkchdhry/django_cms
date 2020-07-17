@@ -16,13 +16,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
-from apps.login import views
+from apps.login import views as login_view
+from apps.account import views
 
 urlpatterns = [
     path('', include('apps.login.urls')),
-    path('dashboard/', views.login_validate.as_view(), name="dashboard"),
-    path('profile/', views.profile, name="profile"),
+    path('dashboard/', login_view.login_validate.as_view(), name="dashboard"),
+    path('dashboard_7/', views.dashboard_page_7.as_view(), name="dashboard_7"),
+    path('panel/', views.panel_page.as_view(), name="panel_page"),
+    path('tabs/', views.tabs_line_pill_page.as_view(), name="tabs_page"),
+    path('alerts/', views.alert_page.as_view(), name="alert_page"),
+    path('tooltips/', views.tooltip_page.as_view(), name="tooltip_page"),
+    path('badges/', views.badges_page.as_view(), name="badges_page"),
+    path('lists/', views.list_page.as_view(), name="list_page"),
+    path('toastr/', views.toastr_page.as_view(), name="toastr_page"),
+    path('profile/', login_view.profile, name="profile"),
     path('dashboard/users/', include('apps.account.urls')),
     path('dashboard/roles/', include('apps.roles.urls')),
-    path('logout/', views.logout.as_view(), name="logout")
+    path('logout/', login_view.logout.as_view(), name="logout")
 ]

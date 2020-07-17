@@ -29,6 +29,69 @@ class user_page(APIView):
         }
         return render(request, 'user/users.html', context)
 
+class dashboard_page_7(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard-7'
+        }
+        return render(request, 'dashboard_7.html', context)
+
+class panel_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Panel'
+        }
+        return render(request, 'basic_ui/panels.html', context)
+
+class tabs_line_pill_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Tabs'
+        }
+        return render(request, 'basic_ui/tabs-pill-line.html', context)
+
+class alert_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Alert'
+        }
+        return render(request, 'basic_ui/alerts.html', context)
+
+class tooltip_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': "Dashboard - Tooltip"
+        }
+        return  render(request, 'basic_ui/tooltip_popover.html', context)
+
+class badges_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': "Dashboard - Badges Progress"
+        }
+        return render(request, 'basic_ui/badges_progress.html', context)
+
+class list_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - List'
+        }
+        return render(request, 'basic_ui/lists.html', context)
+
+class toastr_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Toastr'
+        }
+        return render(request, 'basic_ui/toastr.html', context)
 
 class user_view(APIView):
     """APIView of the user..."""

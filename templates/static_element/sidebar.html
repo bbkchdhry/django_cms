@@ -4,26 +4,8 @@
                     <a href="javascript:;"><i class="sidebar-item-icon ti-home"></i>
                         <span class="nav-label">Dashboards</span><i class="fa fa-angle-left arrow"></i></a>
                     <ul class="nav-2-level collapse in">
-                          <li>
-                            <a class="active" href="../index.html">Visitors</a>
-                        </li>
                         <li>
-                            <a href="dashboard_ecommerce.html">Shop</a>
-                        </li>
-                        <li>
-                            <a href="dashboard_blog.html">Blog</a>
-                        </li>
-                        <li>
-                            <a href="dashboard_4.html">Dashboard v4</a>
-                        </li>
-                        <li>
-                            <a href="dashboard_5.html">Dashboard v5</a>
-                        </li>
-                        <li>
-                            <a href="dashboard_6.html">Dashboard v6</a>
-                        </li>
-                        <li>
-                            <a href="dashboard_7.html">Dashboard v7</a>
+                            <a href="{% url 'dashboard_7' %}">Dashboard v7</a>
                         </li>
                     </ul>
                 </li>
@@ -46,37 +28,28 @@
                         <span class="nav-label">Basic UI</span><i class="fa fa-angle-left arrow"></i></a>
                     <ul class="nav-2-level collapse">
                         <li>
-                            <a href="colors.html">Colors</a>
-                        </li>
-                        <li>
-                            <a href="typography.html">Typography</a>
-                        </li>
-                        <li>
-                            <a href="panels.html">Panels</a>
+                            <a href="{% url 'panel_page' %}">Panels</a>
                         </li>
                         <li>
                             <a href="javascript:;">
                                 <span class="nav-label">Tabs</span><i class="fa fa-angle-left arrow"></i></a>
                             <ul class="nav-3-level collapse">
                                 <li>
-                                    <a href="tabs-pill.html">Pills</a>
-                                </li>
-                                <li>
-                                    <a href="tabs-line.html">Line tabs</a>
+                                    <a href="{% url 'tabs_page' %}">Pills And Line</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="alerts.html">Alerts</a>
+                            <a href="{% url 'alert_page' %}">Alerts</a>
                         </li>
                         <li>
-                            <a href="tooltip_popover.html">Tooltip &amp; Popover</a>
+                            <a href="{% url 'tooltip_page' %}">Tooltip &amp; Popover</a>
                         </li>
                         <li>
-                            <a href="badges_progress.html">Badges &amp; Progress</a>
+                            <a href="{% url 'badges_page' %}">Badges &amp; Progress</a>
                         </li>
                         <li>
-                            <a href="lists.html">List</a>
+                            <a href="{% url 'list_page' %}">List</a>
                         </li>
                     </ul>
                 </li>
@@ -85,7 +58,7 @@
                         <span class="nav-label">Components</span><i class="fa fa-angle-left arrow"></i></a>
                     <ul class="nav-2-level collapse">
                         <li>
-                            <a href="toastr.html">Toastr Notifications</a>
+                            <a href="{% url 'toastr_page' %}">Toastr Notifications</a>
                         </li>
                         <li>
                             <a href="sweetalert.html">Sweet Alert</a>

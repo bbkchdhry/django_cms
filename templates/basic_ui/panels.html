@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Panels</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Panels</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Common</div>
+                                <div class="ibox-tools">
+                                    <a class="ibox-collapse"><i class="ti-angle-down"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="ti-more-alt"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item"> <i class="ti-pencil"></i>Create</a>
+                                        <a class="dropdown-item"> <i class="ti-pencil-alt"></i>Edit</a>
+                                        <a class="dropdown-item"> <i class="ti-close"></i>Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ibox-body">Elit quis enim non ipsum quis esse commodo do culpa pariatur magna sed eiusmod aute excepteur labore enim nulla est cillum qui cupidatat qui magna veniam proident aliquip eu commodo do sint quis nostrud aliqua ex minim pariatur
+                                lorem in consectetur dolor id amet ut nisi aliqua sint qui mollit aute deserunt dolor incididunt voluptate et veniam duis et mollit adipiscing velit ut amet consequat reprehenderit officia adipiscing occaecat ea tempor
+                                exercitation in do in ad quis minim sint consectetur mollit et veniam non enim sed dolore ipsum nisi aliquip ex amet ullamco nulla dolore magna velit reprehenderit velit pariatur </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Common</div>
+                                <div class="ibox-tools">
+                                    <a class="ibox-collapse"><i class="ti-angle-down"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="ti-more-alt"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item"> <i class="ti-pencil"></i>Create</a>
+                                        <a class="dropdown-item"> <i class="ti-pencil-alt"></i>Edit</a>
+                                        <a class="dropdown-item"> <i class="ti-close"></i>Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ibox-body">Elit quis enim non ipsum quis esse commodo do culpa pariatur magna sed eiusmod aute excepteur labore enim nulla est cillum qui cupidatat qui magna veniam proident aliquip eu commodo do sint quis nostrud aliqua ex minim pariatur
+                                lorem in consectetur dolor id amet ut nisi aliqua sint qui mollit aute deserunt dolor incididunt voluptate et veniam duis et mollit adipiscing velit ut amet consequat reprehenderit officia adipiscing occaecat ea tempor
+                                exercitation in do in ad quis minim sint consectetur mollit et veniam non enim sed dolore ipsum nisi aliquip ex amet ullamco nulla dolore magna velit reprehenderit velit pariatur </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-head">
+                        <div class="ibox-title">Common</div>
+                        <div class="ibox-tools">
+                            <a class="ibox-collapse"><i class="ti-angle-down"></i></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown"><i class="ti-more-alt"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item"> <i class="ti-pencil"></i>Create</a>
+                                <a class="dropdown-item"> <i class="ti-pencil-alt"></i>Edit</a>
+                                <a class="dropdown-item"> <i class="ti-close"></i>Remove</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ibox-body">Elit quis enim non ipsum quis esse commodo do culpa pariatur magna sed eiusmod aute excepteur labore enim nulla est cillum qui cupidatat qui magna veniam proident aliquip eu commodo do sint quis nostrud aliqua ex minim pariatur
+                        lorem in consectetur dolor id amet ut nisi aliqua sint qui mollit aute deserunt dolor incididunt voluptate et veniam duis et mollit adipiscing velit ut amet consequat reprehenderit officia adipiscing occaecat ea tempor
+                        exercitation in do in ad quis minim sint consectetur mollit et veniam non enim sed dolore ipsum nisi aliquip ex amet ullamco nulla dolore magna velit reprehenderit velit pariatur </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}
