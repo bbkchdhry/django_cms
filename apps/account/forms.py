@@ -20,7 +20,7 @@ class UserForm(forms.ModelForm):
 class UserRolesForm(forms.ModelForm):
     roles = forms.ModelMultipleChoiceField(
         queryset=Role.objects,
-        widget=forms.CheckboxSelectMultiple,
+        widget=forms.SelectMultiple,
         required=True)
     class Meta:
         model = User_role

@@ -22,5 +22,6 @@ class User_role(models.Model):
     class Meta:
         db_table = "user_roles"
 
-    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_id")
     roles = models.ManyToManyField(Role)
+

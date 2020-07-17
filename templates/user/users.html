@@ -92,4 +92,40 @@
     <script src="{% static 'js/user/modals/user_modal.js' %}"></script>
     <script src="{% static 'vendors/dataTables/datatables.min.js' %}"></script>
     <script src="{% static 'js/user/user_script.js' %}"></script>
+    <script>
+        $(function (){
+            $("#post_user").validate({
+                rules:{
+                    user_name: "required",
+                    hashed_password: {
+                        required: true,
+                        minlength: 6
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                },
+                messages: {
+                    user_name: "Please enter your username",
+                    hashed_password: {
+                        required: "Please provide a password",
+                        minlength: "Password must be 6 character long!.."
+                    },
+                    email: {
+                      required: "Please provide your email",
+                      email: "Enter a valid email"
+                    }
+                },
+                 highlight: function(e) {
+                     $(e).closest(".form-group").addClass("has-error")
+                 },
+                 unhighlight: function(e) {
+                     $(e).closest(".form-group").removeClass("has-error")
+                },
+            });
+        })
+
+    </script>
 {% endblock %}
+

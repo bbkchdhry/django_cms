@@ -82,4 +82,20 @@
     <script src="{% static 'js/roles/modals/roles_modal.js' %}"></script>
     <script src="{% static 'vendors/dataTables/datatables.min.js' %}"></script>
     <script src="{% static 'js/roles/roles_script.js' %}"></script>
+    <script>
+        $("#post_role").validate({
+            rules:{
+                name: "required"
+            },
+            messages: {
+                name: "Please enter role name"
+            },
+             highlight: function(e) {
+                    $(e).closest(".form-group").addClass("has-error")
+             },
+             unhighlight: function(e) {
+                $(e).closest(".form-group").removeClass("has-error")
+             },
+        })
+    </script>
 {% endblock %}

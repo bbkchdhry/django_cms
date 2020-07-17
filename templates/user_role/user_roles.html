@@ -3,6 +3,7 @@
 {% block externalcss %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="{% static 'vendors/dataTables/datatables.min.css' %}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 {% endblock %}
 {% block content %}
        <div class="page-wrapper">
@@ -78,7 +79,28 @@
     {% include 'static_element/quicksearchbar.html' %}
 {% endblock %}
 {% block externaljs %}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script src="{% static 'vendors/dataTables/datatables.min.js' %}"></script>
     <script src="{% static 'js/user_role/modals/uesr_roles_modal.js' %}"></script>
     <script src="{% static 'js/user_role/user_roles_script.js' %}"></script>
+    <script>
+        $(function (){
+            $("#post_user_roles").validate({
+                rules:{
+                    user: "required",
+                    roles: "required",
+                },
+                messages:{
+                    user: "Please select the user",
+                    roles: "Please select the roles"
+                },
+                 highlight: function(e) {
+                    $(e).closest(".form-group").addClass("has-error")
+             },
+             unhighlight: function(e) {
+                $(e).closest(".form-group").removeClass("has-error")
+            },
+            })
+        })
+    </script>
 {% endblock %}

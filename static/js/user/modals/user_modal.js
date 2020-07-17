@@ -11,6 +11,8 @@ $("#add_user").on("click", function (e){
 $(".modal_container_close").on("click", function (e){
   toggleUserModal();
   document.querySelector("#post_user").reset();
+  $(".form-group").removeClass("has-error");
+  $("#post_user").validate().resetForm();
 })
 
 $(modal).on("click", function(event){

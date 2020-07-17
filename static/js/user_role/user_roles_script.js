@@ -39,8 +39,9 @@ $('#type-filter').on('change', function() {
 $(document).on("submit", "#post_user_roles", function(e){
     e.preventDefault();
     let roles = [];
-    $("input[name='roles']:checked").each(function() {
-        roles.push($(this).val());
+    let roleId = $(".chosen-select").select2('data')
+    roleId.forEach(r=>{
+       roles.push(r.id);
     })
     console.log(roles)
     console.log(typeof roles)
@@ -54,6 +55,7 @@ $(document).on("submit", "#post_user_roles", function(e){
             action: "post",
         },
         success: function (data){
+            console.log(data)
             toggleUserRolesModal();
             Swal.fire({
                 position: "top-end",
@@ -64,6 +66,7 @@ $(document).on("submit", "#post_user_roles", function(e){
             })
             document.querySelector("#post_user_roles").reset();
             datatables.ajax.reload();
+            $(".chosen-select").val(null).trigger("change");
         }
     })
 })
@@ -119,9 +122,13 @@ $(document).on("submit", "#edit_user_roles", function (e){
     let userRoleId = e.target.elements[1].value;
     console.log(userRoleId)
     let roles = []
-    $(".roles input[name='roles']:checked").each(function(){
-        roles.push($(this).val())
+    let roleId = $(".edit-chosen-select").select2('data');
+    roleId.forEach(r=>{
+        roles.push(r.id)
     });
+    // $(".roles input[name='roles']:checked").each(function(){
+    //     roles.push($(this).val())
+    // });
     console.log(roles)
     $.ajax({
         url: "edit/"+userRoleId,
@@ -139,3 +146,7 @@ $(document).on("submit", "#edit_user_roles", function (e){
         }
     })
 })
+
+$(function(){
+    $(".chosen-select").select2({width: "100%", id: "roles"});
+});

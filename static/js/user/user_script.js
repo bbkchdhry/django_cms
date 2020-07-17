@@ -88,7 +88,11 @@ $(document).on("submit", "#post_user", function (e){
             })
             document.querySelector("#post_user").reset();
             datatables.ajax.reload();
+        },
+        error: function(data){
+            console.log("Errorr......")
         }
+
     })
 })
 

@@ -16,6 +16,7 @@ import ast
 # Create your views here.
 from ..login.decorators import my_login_required
 from apps.roles.models import Role
+from django.contrib import messages
 
 class user_page(APIView):
     """View to render user.html page"""
@@ -94,6 +95,7 @@ class user_view_detail(APIView):
 
     def delete(self, request, id):
         """Delete request to remove the user of specific id..."""
+        print("deleting....")
         instance = self.get_object(id)
         instance.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -175,6 +177,7 @@ class user_roles_view_detail(APIView):
         elif serializer.errors:
             print("Errors...")
             print(serializer.errors)
+
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 

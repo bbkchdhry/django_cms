@@ -10,6 +10,8 @@ $("#add_roles").on("click", function (e){
 $(".modal_container_close").on("click", function (e){
   toggleRoleModal();
   document.querySelector("#post_role").reset();
+  $(".form-group").removeClass("has-error");
+  $("#post_role").validate().resetForm();
 })
 
 $(modal).on("click", function(e){
@@ -41,6 +43,5 @@ function toggleEditRoleModal(data){
         edit_role_modal.querySelector("#roleId").value = data.id;
         edit_role_modal.querySelector("input[name='name']").value = data.name;
         edit_role_modal.style.display = "flex";
-
     }
 }

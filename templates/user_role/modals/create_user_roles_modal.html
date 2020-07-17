@@ -20,11 +20,8 @@
                         <div class="col-sm-12 form-group mb-4">
                             <label>Roles: </label>
                             <div class="form-check">
-                              <label class="form-check-label">
-                                  {% render_field form.roles class="form-check-input"%}
-                              </label>
+                                {% render_field form.roles class="chosen-select" data-placeholder="Choose roles..." name="roles[]"%}
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
