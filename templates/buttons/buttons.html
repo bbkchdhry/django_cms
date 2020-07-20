@@ -1,0 +1,726 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block externalcss %}
+    <!-- PAGE LEVEL STYLES-->
+    <style>
+        .btn-list-demo *:not(.btn-group):not(.btn-group-justified):not(.btn-group-vertical)>.btn {
+            margin-bottom: 15px;
+            margin-right: 5px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Buttons - Square/Round/Air Style</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Buttons</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="row btn-list-demo">
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Base Buttons</div>
+                            </div>
+                            <div class="ibox-body">
+                                <p>Add class <code>.btn-square</code> for square buttons.</p>
+                                <p>Add class <code>.btn-rounded</code> for round buttons.</p>
+                                <p>Add class <code>.btn-air</code> for air buttons.</p>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="mb-4">Square Buttons</div>
+                                        <button class="btn btn-primary btn-square">Primary</button>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="mb-4">Round Buttons</div>
+                                        <button class="btn btn-warning btn-rounded">Warning</button>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="mb-4">Air Buttons</div>
+                                         <button class="btn btn-success btn-air">Success</button>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3 mb-2">Long style</div>
+                                <p>Add class <code>.btn-fix</code> for the minimum fixed width</p>
+                                <button class="btn btn-secondary btn-fix btn-square">Secondary</button>
+                                <button class="btn btn-info btn-fix btn-rounded">Info</button>
+                                <button class="btn btn-danger btn-fix btn-air">Danger</button>
+                                <div class="mt-4 mb-4">Gradient Buttons</div>
+                                <p>Add class <code>.btn-gradient-{colorname}</code>for a gradient color</p>
+                                <p>Add class <code>.btn-gradient-{colorname}-{colorname}</code>for a gradient mixed color</p>
+                                <button class="btn btn-gradient-purple btn-square btn-fix">PURPLE</button>
+                                <button class="btn btn-gradient-blue-pink btn-rounded btn-fix">BLUE-PINK</button>
+                                <button class="btn btn-gradient-blue2 btn-air btn-fix">BLUE 2</button>
+                            </div>
+                        </div>
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Outline Buttons</div>
+                            </div>
+                            <div class="ibox-body">
+                                <button class="btn btn-outline-primary btn-square">Primary</button>
+                                <button class="btn btn-outline-success btn-rounded">Success</button>
+                                <button class="btn btn-outline-warning btn-air">Warning</button>
+                                <div class="mb-4 mt-3">Long style</div>
+                                <button class="btn btn-outline-secondary btn-fix btn-square">Secondary</button>
+                                <button class="btn btn-outline-info btn-fix btn-rounded">Info</button>
+                                <button class="btn btn-outline-blue btn-fix btn-air">Blue</button>
+                                <div class="mt-4 mb-2">Thick style</div>
+                                <p>Add class <code>.btn-thick</code> for the thick border</p>
+                                <button class="btn btn-outline-info btn-fix btn-thick btn-square">Info</button>
+                                <button class="btn btn-outline-warning btn-fix btn-thick btn-rounded">Warning</button>
+                                <button class="btn btn-outline-danger btn-fix btn-thick btn-air">Danger</button>
+                            </div>
+                        </div>
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Block Buttons</div>
+                            </div>
+                            <div class="ibox-body">
+                                <p>add class <code>.btn-block</code> for block level buttons.</p>
+                                <button class="btn btn-info btn-block btn-square">Block Button</button>
+                                <button class="btn btn-primary btn-block btn-rounded">Block Button</button>
+                                <button class="btn btn-outline-default btn-block btn-air">Block Button</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Button Sizes</div>
+                            </div>
+                            <div class="ibox-body">
+                                <p>Add class <code>.btn-lg</code> or <code>.btn-sm</code> for additional sizes.</p>
+                                <button class="btn btn-primary btn-lg btn-square">Large Button</button>
+                                <button class="btn btn-info btn-lg btn-rounded">Large Button</button>
+                                <button class="btn btn-outline-pink btn-lg btn-air">Large Button</button>
+                                <div class="mt-4 mb-4">Default size</div>
+                                <button class="btn btn-primary btn-square">Default Button</button>
+                                <button class="btn btn-info btn-rounded">Default Button</button>
+                                <button class="btn btn-outline-pink btn-air">Default Button</button>
+                                <div class="mt-4 mb-4">Small size</div>
+                                <button class="btn btn-primary btn-sm btn-square">Small Button</button>
+                                <button class="btn btn-info btn-sm btn-rounded">Small Button</button>
+                                <button class="btn btn-outline-pink btn-sm btn-air">Small Button</button>
+                            </div>
+                        </div>
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Button States</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="mt-4 mb-4">Default state</div>
+                                <button class="btn btn-secondary btn-square">Default</button>
+                                <button class="btn btn-success btn-rounded">Default</button>
+                                <button class="btn btn-info btn-air">Default</button>
+                                <div class="mt-4 mb-4">Active state</div>
+                                <button class="btn btn-secondary btn-square active">Active</button>
+                                <button class="btn btn-success btn-rounded active">Active</button>
+                                <button class="btn btn-info btn-air active">Active</button>
+                                <div class="mt-4 mb-4">Disabled state</div>
+                                <button class="btn btn-secondary btn-square" disabled>Disabled</button>
+                                <button class="btn btn-success btn-rounded" disabled>Disabled</button>
+                                <button class="btn btn-info btn-active" disabled>Disabled</button>
+                            </div>
+                        </div>
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Checkbox and radio buttons</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="mt-4 mb-4">Toggle State</div>
+                                <button class="btn btn-info btn-square" data-toggle="button">
+                                    <span class="active-hidden">
+                                        <span class="btn-icon"><i class="la la-cloud-upload"></i>Upload</span>
+                                    </span>
+                                    <span class="active-visible">
+                                        <span class="btn-icon"><i class="ti-check"></i>Uploaded</span>
+                                    </span>
+                                </button>
+                                <button class="btn btn-pink btn-rounded" data-toggle="button">
+                                    <span class="active-hidden">Follow</span>
+                                    <span class="active-visible">
+                                        <span class="btn-icon"><i class="ti-heart-broken"></i>Unfollow</span>
+                                    </span>
+                                </button>
+                                <button class="btn btn-primary btn-icon-only btn-air" data-toggle="button">
+                                    <span class="active-hidden"><i class="la la-music"></i></span>
+                                    <span class="active-visible"><i class="la la-pause"></i></span>
+                                </button>
+                                <div class="mt-4 mb-4">Checkbox buttons</div>
+                                <div class="btn-group btn-square" data-toggle="buttons">
+                                    <label class="btn btn-info">CHECKBOX 1
+                                        <input type="checkbox">
+                                    </label>
+                                    <label class="btn btn-info">CHECKBOX 2
+                                        <input type="checkbox">
+                                    </label>
+                                    <label class="btn btn-info">CHECKBOX 3
+                                        <input type="checkbox">
+                                    </label>
+                                </div>
+                                <div class="mt-4 mb-4">Radio buttons</div>
+                                <div class="btn-group btn-rounded mb-4" data-toggle="buttons">
+                                    <label class="btn btn-primary">RADIO 1
+                                        <input type="radio">
+                                    </label>
+                                    <label class="btn btn-primary active">RADIO 2
+                                        <input type="radio" checked="">
+                                    </label>
+                                    <label class="btn btn-primary">RADIO 3
+                                        <input type="radio">
+                                    </label>
+                                </div>
+                                <div class="btn-group btn-air" data-toggle="buttons">
+                                    <label class="btn btn-outline-pink"><i class="ti-check active-visible"></i> Male
+                                        <input type="radio">
+                                    </label>
+                                    <label class="btn btn-outline-pink"><i class="ti-check active-visible"></i> Female
+                                        <input type="radio">
+                                    </label>
+                                    <label class="btn btn-outline-pink"><i class="ti-check active-visible"></i> N/A
+                                        <input type="radio">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row btn-list-demo">
+                    <div class="col-md-6">
+                        <div class="ibox ibox-fullheight">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Only Icon Buttons</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="mt-4 mb-4">Circle/Square</div>
+                                <div>
+                                    <button class="btn btn-info btn-icon-only btn-circle btn-lg btn-air"><i class="la la-pencil"></i></button>
+                                    <button class="btn btn-primary btn-icon-only btn-circle btn-lg btn-air"><i class="la la-music"></i></button>
+                                    <button class="btn btn-pink btn-icon-only btn-lg btn-air"><i class="la la-comments"></i></button>
+                                    <button class="btn btn-success btn-icon-only btn-lg btn-air"><i class="la la-plus"></i></button>
+                                </div>
+                                <div class="mt-4 mb-4">Gradient</div>
+                                <div>
+                                    <button class="btn btn-gradient-peach btn-icon-only btn-circle btn-lg btn-air"><i class="la la-heart-o"></i></button>
+                                    <button class="btn btn-gradient-blue btn-icon-only btn-circle btn-lg btn-air"><i class="la la-plus"></i></button>
+                                </div>
+                                <div class="mt-4 mb-4">Outline</div>
+                                <div>
+                                    <button class="btn btn-outline-danger btn-icon-only btn-circle btn-lg"><i class="la la-warning"></i></button>
+                                    <button class="btn btn-outline-secondary btn-icon-only btn-circle btn-lg"><i class="la la-cloud-download"></i></button>
+                                    <button class="btn btn-outline-info btn-icon-only btn-lg"><i class="la la-pencil"></i></button>
+                                    <button class="btn btn-outline-primary btn-icon-only btn-lg"><i class="la la-music"></i></button>
+                                </div>
+                                <div class="mt-4 mb-4">Thick style</div>
+                                <div>
+                                    <button class="btn btn-outline-info btn-icon-only btn-circle btn-lg btn-thick"><i class="la la-pencil"></i></button>
+                                    <button class="btn btn-outline-primary btn-icon-only btn-circle btn-lg btn-thick"><i class="la la-music"></i></button>
+                                    <button class="btn btn-outline-danger btn-icon-only btn-lg btn-thick"><i class="la la-warning"></i></button>
+                                    <button class="btn btn-outline-secondary btn-icon-only btn-lg btn-thick"><i class="la la-cloud-download"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ibox ibox-fullheight">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Icon Buttons</div>
+                            </div>
+                            <div class="ibox-body">
+                                <button class="btn btn-info btn-fix">
+                                    <span class="btn-icon"><i class="la la-pencil"></i>Edit</span>
+                                </button>
+                                <button class="btn btn-gradient-purple btn-fix">
+                                    <span class="btn-icon"><i class="la la-camera"></i>Upload</span>
+                                </button>
+                                <button class="btn btn-pink btn-fix btn-air">
+                                    <span class="btn-icon"><i class="la la-heart-o"></i>Follow</span>
+                                </button>
+                                <button class="btn btn-outline-secondary btn-fix">
+                                    <span class="btn-icon"><i class="la la-print"></i>Print</span>
+                                </button>
+                                <button class="btn btn-outline-danger btn-fix btn-air">
+                                    <span class="btn-icon"><i class="la la-trash"></i>Remove</span>
+                                </button>
+                                  <button class="btn btn-outline-warning btn-fix btn-rounded btn-thick">
+                                    <span class="btn-icon"><i class="la la-user-plus"></i>Upload</span>
+                                </button>
+                                <div class="mt-4 mb-4">Sizes</div>
+                                <div>
+                                    <button class="btn btn-primary btn-fix btn-lg">
+                                        <span class="btn-icon"><i class="la la-pencil"></i>Edit</span>
+                                    </button>
+                                    <button class="btn btn-pink btn-fix btn-lg btn-rounded">
+                                        <span class="btn-icon"><i class="la la-heart-o"></i>Follow</span>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary btn-fix">
+                                        <span class="btn-icon"><i class="la la-pencil"></i>Edit</span>
+                                    </button>
+                                    <button class="btn btn-pink btn-fix btn-rounded">
+                                        <span class="btn-icon"><i class="la la-heart-o"></i>Follow</span>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary btn-fix btn-sm">
+                                        <span class="btn-icon"><i class="la la-pencil"></i>Edit</span>
+                                    </button>
+                                    <button class="btn btn-pink btn-fix btn-sm btn-rounded">
+                                        <span class="btn-icon"><i class="la la-heart-o"></i>Follow</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row btn-list-demo">
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Labeled Buttons</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="mt-4 mb-4">Left label</div>
+                                <button class="btn btn-primary btn-labeled btn-labeled-left btn-icon">
+                                    <span class="btn-label"><i class="la la-music"></i></span>Labeled</button>
+                                <button class="btn btn-gradient-lime btn-labeled btn-labeled-left btn-icon">
+                                    <span class="btn-label"><i class="la la-user-plus"></i></span>Labeled</button>
+                                <div class="mt-4 mb-4">Right label</div>
+                                <button class="btn btn-pink btn-labeled btn-labeled-right btn-icon">
+                                    <span class="btn-label"><i class="ti-camera"></i></span>Labeled</button>
+                                <button class="btn btn-gradient-blue btn-labeled btn-labeled-right btn-icon">
+                                    <span class="btn-label"><i class="ti-gift"></i></span>Labeled</button>
+                                <div class="mt-4 mb-4">Sizes</div>
+                                <div>
+                                    <button class="btn btn-gradient-purple btn-labeled btn-labeled-left btn-lg btn-icon">
+                                        <span class="btn-label"><i class="ti-music"></i></span>Labeled</button>
+                                    <button class="btn btn-gradient-peach btn-labeled btn-labeled-left btn-lg btn-icon">
+                                        <span class="btn-label"><i class="ti-camera"></i></span>Labeled</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-gradient-purple btn-labeled btn-labeled-left btn-icon">
+                                        <span class="btn-label"><i class="ti-music"></i></span>Labeled</button>
+                                    <button class="btn btn-gradient-peach btn-labeled btn-labeled-left btn-icon">
+                                        <span class="btn-label"><i class="ti-camera"></i></span>Labeled</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-gradient-purple btn-labeled btn-labeled-left btn-sm btn-icon">
+                                        <span class="btn-label"><i class="ti-music"></i></span>Labeled</button>
+                                    <button class="btn btn-gradient-peach btn-labeled btn-labeled-left btn-sm btn-icon">
+                                        <span class="btn-label"><i class="ti-camera"></i></span>Labeled</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Outline Labels</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="mt-4 mb-4">Right label</div>
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary">
+                                        <span class="btn-icon"><i class="ti-heart"></i>Like</span>
+                                    </button>
+                                    <span class="btn-label-out btn-label-out-right">278</span>
+                                </div>
+                                <div class="mt-4 mb-4">Outline</div>
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary">
+                                        <span class="btn-icon"><i class="ti-shopping-cart"></i>Sales</span>
+                                    </button>
+                                    <span class="btn-label-out btn-label-out-right btn-label-out-primary pointing">740</span>
+                                </div>
+                                <div class="mt-4 mb-4">Left label</div>
+                                <div class="btn-group">
+                                    <span class="btn-label-out btn-label-out-left btn-label-out-gradient-purple pointing">145</span>
+                                    <button class="btn btn-gradient-purple">
+                                        <span class="btn-icon"><i class="ti-music"></i>Music</span>
+                                    </button>
+                                </div>
+                                <div class="mt-4 mb-4">Outline</div>
+                                <div class="btn-group">
+                                    <span class="btn-label-out btn-label-out-left btn-label-out-success pointing">$200</span>
+                                    <button class="btn btn-outline-success">
+                                        <span class="btn-icon"><i class="la la-money"></i>Money</span>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row btn-list-demo">
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Animated Buttons</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="mt-4 mb-4">Fade effect</div>
+                                <button class="btn btn-pink btn-lg btn-animated fade-button">
+                                    <span class="visible-content btn-icon"><i class="ti-heart"></i>Follow me</span>
+                                    <span class="hidden-content">I Love You</span>
+                                </button>
+                                <div class="mt-4 mb-4">From top</div>
+                                <button class="btn btn-success btn-animated from-top">
+                                    <span class="visible-content"><i class="la la-user-plus font-18 v-middle"></i></span>
+                                    <span class="hidden-content">Add</span>
+                                </button>
+                                <div class="mt-4 mb-4">From left</div>
+                                <button class="btn btn-primary btn-fix btn-animated from-left">
+                                    <span class="visible-content">Admin Template</span>
+                                    <span class="hidden-content">
+                                        <span class="btn-icon">View Demo<i class="ti-arrow-circle-right pr-0 pl-2"></i></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ibox">
+                    <div class="ibox-head">
+                        <div class="ibox-title">Floating Action Buttons</div>
+                    </div>
+                    <div class="ibox-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="fab fab-right">
+                                    <button class="btn btn-pink btn-icon-only btn-circle btn-lg btn-air" data-toggle="button"><i class="la la-share-alt fab-icon"></i><i class="la la-close fab-icon-active"></i></button>
+                                    <ul class="fab-menu">
+                                        <li>
+                                            <a class="btn btn-soc-facebook btn-icon-only btn-circle btn-air" href="javascript:;"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-soc-twitter btn-icon-only btn-circle btn-air" href="javascript:;"><i class="fa fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-soc-dribbble btn-icon-only btn-circle btn-air" href="javascript:;"><i class="fa fa-dribbble"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-soc-google btn-icon-only btn-circle btn-air" href="javascript:;"><i class="fa fa-google-plus"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <pre><button class="btn btn-sm btn-secondary clipboard-copy">Copy</button><code class="language-markup">&lt;div class="fab fab-right">
+  &lt;button class="btn btn-lg btn-primary btn-icon-only btn-circle btn-air" data-toggle="button">
+    &lt;i class="fab-icon la la-bars">&lt;/i>
+    &lt;i class="fab-icon-active la la-close">&lt;/i>
+  &lt;/button>
+
+  &lt;ul class="fab-menu">
+    &lt;li>&lt;a class="btn btn-pink" href="#">1&lt;/a>&lt;/li>
+    &lt;li>&lt;a class="btn btn-pink" href="#">2&lt;/a>&lt;/li>
+    &lt;li>&lt;a class="btn btn-pink" href="#">3&lt;/a>&lt;/li>
+  &lt;/ul>
+&lt;/div></code></pre>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-md-4">
+                                <h6 class="mb-2">Top Direction</h6>
+                                <p><code>.fab-top</code> add to <i>.fab</i></p>
+                            </div>
+                            <div class="col-md-4">
+                                <h6 class="mb-2">Bottom Direction</h6>
+                                <p><code>.fab-bottom</code> add to <i>.fab</i></p>
+                            </div>
+                            <div class="col-md-4">
+                                <h6 class="mb-2">Left Direction</h6>
+                                <p><code>.fab-left</code> add to <i>.fab</i></p>
+                            </div>
+                            <div class="col-md-6"></div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+                <div class="row btn-list-demo dropdown-demo">
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Button Groups</div>
+                            </div>
+                            <div class="ibox-body">
+                                <h6 class="mb-4">Basic Example</h6>
+                                <div class="btn-group mb-3 mr-2">
+                                    <div class="btn btn-secondary">Left</div>
+                                    <div class="btn btn-secondary">Middle</div>
+                                    <div class="btn btn-secondary">Right</div>
+                                </div>
+                                <h6 class="mb-4 mt-5">Button toolbars</h6>
+                                <div class="btn-toolbar mb-3">
+                                    <div class="btn-group mr-2 mb-2">
+                                        <div class="btn btn-outline-secondary"><i class="ti-wand"></i></div>
+                                        <div class="btn btn-outline-secondary"><i class="ti-brush-alt"></i></div>
+                                        <div class="btn btn-outline-secondary"><i class="ti-files"></i></div>
+                                        <div class="btn btn-outline-secondary"><i class="ti-image"></i></div>
+                                        <div class="btn btn-outline-secondary"><i class="ti-link"></i></div>
+                                    </div>
+                                    <div class="btn-group mb-2">
+                                        <div class="btn btn-outline-secondary"><i class="ti-export"></i></div>
+                                        <div class="btn btn-outline-secondary"><i class="ti-printer"></i></div>
+                                        <div class="btn btn-outline-secondary"><i class="ti-zip"></i></div>
+                                    </div>
+                                </div>
+                                <div class="btn-toolbar mb-3">
+                                    <div class="btn-group mr-2 mb-2">
+                                        <div class="btn btn-primary"><i class="ti-align-right"></i></div>
+                                        <div class="btn btn-primary"><i class="ti-align-center"></i></div>
+                                        <div class="btn btn-primary"><i class="ti-align-left"></i></div>
+                                        <div class="btn btn-primary"><i class="ti-align-justify"></i></div>
+                                    </div>
+                                    <div class="btn-group mb-2">
+                                        <div class="btn btn-primary"><i class="ti-text"></i></div>
+                                        <div class="btn btn-primary"><i class="ti-underline"></i></div>
+                                        <div class="btn btn-primary"><i class="ti-Italic"></i></div>
+                                        <div class="btn-group">
+                                            <div class="btn btn-primary dropdon-toggle dropdown-arrow" data-toggle="dropdown">Fonts</div>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="javascript:;">Arial</a>
+                                                <a class="dropdown-item" href="javascript:;">Verdena</a>
+                                                <a class="dropdown-item" href="javascript:;">Sans Serif</a>
+                                                <a class="dropdown-item" href="javascript:;">Tahoma</a>
+                                                <a class="dropdown-item" href="javascript:;">Arial Black</a>
+                                                <a class="dropdown-item" href="javascript:;">Helvetica</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-group mb-3">
+                                    <div class="btn btn-pink">
+                                        <span class="btn-icon"><i class="la la-backward"></i>Back</span>
+                                    </div>
+                                    <div class="btn btn-pink">
+                                        <span class="btn-icon"><i class="la la-play"></i>Play</span>
+                                    </div>
+                                    <div class="btn btn-pink">
+                                        <span class="btn-icon btn-icon-right">Next<i class="la la-forward"></i></span>
+                                    </div>
+                                </div><br>
+
+                                <h6 class="mb-4 mt-5">Rounded & air style</h6>
+                                <div class="btn-group btn-rounded mr-2 mb-3">
+                                    <div class="btn btn-warning">Left</div>
+                                    <div class="btn btn-warning">Middle</div>
+                                    <div class="btn btn-warning">Right</div>
+                                </div>
+                                 <div class="btn-group btn-rounded btn-air mb-3">
+                                    <div class="btn btn-outline-danger">Left</div>
+                                    <div class="btn btn-outline-danger">Middle</div>
+                                    <div class="btn btn-outline-danger">Right</div>
+                                </div><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Button Groups</div>
+                            </div>
+                            <div class="ibox-body">
+                                <h6 class="mb-4">Vertical variation</h6>
+                                <div class="btn-group-vertical mr-3 mb-3">
+                                    <div class="btn btn-secondary">Button</div>
+                                    <div class="btn btn-secondary">Button</div>
+                                    <div class="btn-group">
+                                        <div class="btn btn-secondary dropdon-toggle dropdown-arrow" data-toggle="dropdown">More</div>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="javascript:;">Dropdown Link</a>
+                                            <a class="dropdown-item" href="javascript:;">Dropdown Link</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-group-vertical mb-3">
+                                    <div class="btn btn-pink btn-labeled btn-labeled-left btn-icon">
+                                        <span class="btn-label"><i class="la la-upload"></i></span>Export</div>
+                                    <div class="btn btn-pink btn-labeled btn-labeled-left btn-icon">
+                                        <span class="btn-label"><i class="la la-file-zip-o"></i></span>Zip</div>
+                                    <div class="btn btn-pink btn-labeled btn-labeled-left btn-icon">
+                                        <span class="btn-label"><i class="la la-print"></i></span>Print</div>
+                                </div><br>
+                                <h6 class="mb-2 mt-4">Sizing</h6>
+                                <p>Instead of applying button sizing classes to every button in a group, just add <code>.btn-group-*</code> to each <code>.btn-group</code>, including each one when nesting multiple groups.</p>
+                                <div class="btn-group btn-group-lg mb-3">
+                                    <div class="btn btn-secondary">Left</div>
+                                    <div class="btn btn-secondary">Middle</div>
+                                    <div class="btn btn-secondary">Right</div>
+                                </div><br>
+                                <div class="btn-group mb-3">
+                                    <div class="btn btn-secondary">Left</div>
+                                    <div class="btn btn-secondary">Middle</div>
+                                    <div class="btn btn-secondary">Right</div>
+                                </div><br>
+                                <div class="btn-group btn-group-sm mb-3">
+                                    <div class="btn btn-secondary">Left</div>
+                                    <div class="btn btn-secondary">Middle</div>
+                                    <div class="btn btn-secondary">Right</div>
+                                </div><br></div>
+                        </div>
+                    </div>
+                </div>
+                  <div class="row btn-list-demo dropdown-demo">
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Dropdown Buttons</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="mb-4">Single button dropdowns </div>
+                                <div class="dropdown">
+                                    <button class="btn btn-pink dropdown-toggle dropdown-arrow" data-toggle="dropdown">Dropdown Button</button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="javascript:;">Action</a>
+                                        <a class="dropdown-item" href="javascript:;">Another action</a>
+                                        <a class="dropdown-item" href="javascript:;">Something else here</a>
+                                    </div>
+                                </div>
+                                <div class="mt-4 mb-4">Split button dropdowns</div>
+                                <div class="btn-group">
+                                    <button class="btn btn-info">Dropdown Button</button>
+                                    <button class="btn btn-info dropdown-toggle-split dropdown-toggle dropdown-arrow" data-toggle="dropdown"></button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="javascript:;">Action</a>
+                                        <a class="dropdown-item" href="javascript:;">Another action</a>
+                                        <a class="dropdown-item" href="javascript:;">Something else here</a>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary">Dropdown Button</button>
+                                    <button class="btn btn-outline-primary dropdown-toggle-split dropdown-toggle dropdown-arrow" data-toggle="dropdown"></button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="javascript:;">Action</a>
+                                        <a class="dropdown-item" href="javascript:;">Another action</a>
+                                        <a class="dropdown-item" href="javascript:;">Something else here</a>
+                                    </div>
+                                </div>
+                                <div class="mt-4 mb-4">Menu with icons</div>
+                                <div class="dropdown">
+                                    <button class="btn btn-info dropdown-toggle dropdown-arrow" data-toggle="dropdown">Themify Icons</button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="javascript:;"><i class="ti-user"></i>Action</a>
+                                        <a class="dropdown-item" href="javascript:;"><i class="ti-comments"></i>Another action</a>
+                                        <a class="dropdown-item" href="javascript:;"><i class="ti-support"></i>Something else here</a>
+                                    </div>
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn btn-pink dropdown-toggle dropdown-arrow" data-toggle="dropdown">Lineawesome Icons</button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="javascript:;"><i class="la la-camera"></i>Action</a>
+                                        <a class="dropdown-item" href="javascript:;"><i class="la la-comments"></i>Another action</a>
+                                        <a class="dropdown-item" href="javascript:;"><i class="la la-heart-o"></i>Something else here</a>
+                                    </div>
+                                </div>
+                                <div class="mt-3 mb-4">Sizing</div>
+                                <div class="btn-group btn-group-lg">
+                                    <button class="btn btn-primary">Large Split Button</button>
+                                    <button class="btn btn-primary dropdown-toggle-split dropdown-toggle dropdown-arrow" data-toggle="dropdown"></button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="javascript:;">Action</a>
+                                        <a class="dropdown-item" href="javascript:;">Another action</a>
+                                        <a class="dropdown-item" href="javascript:;">Something else here</a>
+                                    </div>
+                                </div><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Dropdown Buttons</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="mt-4 mb-4">Divider</div>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle dropdown-arrow" data-toggle="dropdown">Dropdown Button</button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="javascript:;">Action</a>
+                                        <a class="dropdown-item" href="javascript:;">Another action</a>
+                                        <a class="dropdown-item" href="javascript:;">Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="javascript:;">Separated link</a>
+                                    </div>
+                                </div>
+                                <div class="mt-4 mb-4">Menu headers</div>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle dropdown-arrow" data-toggle="dropdown">Dropdown Button</button>
+                                    <div class="dropdown-menu">
+                                        <h6 class="dropdown-header">Dropdown header</h6>
+                                        <a class="dropdown-item" href="javascript:;">Action</a>
+                                        <a class="dropdown-item" href="javascript:;">Another action</a>
+                                        <a class="dropdown-item" href="javascript:;">Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="javascript:;">Separated link</a>
+                                    </div>
+                                </div>
+                                <h6 class="mt-4 mb-2">Menu alignment</h6>
+                                <p>Add <code>.dropdown-menu-right</code> to a <code>.dropdown-menu</code> to right align the dropdown menu.</p>
+                                <div class="dropdown">
+                                    <button class="btn btn-success dropdown-toggle dropdown-arrow" data-toggle="dropdown">Right Aligned</button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="javascript:;">Action</a>
+                                        <a class="dropdown-item" href="javascript:;">Another action</a>
+                                        <a class="dropdown-item" href="javascript:;">Something else here</a>
+                                    </div>
+                                </div>
+                                <h6 class="mt-4 mb-2">Dropup variation</h6>
+                                <p>Trigger dropdown menus above elements by adding <code>.dropup</code> to the parent element.</p>
+                                <div class="btn-group dropup">
+                                    <button class="btn btn-warning">Dropup Button</button>
+                                    <button class="btn btn-warning dropdown-toggle-split dropdown-toggle" data-toggle="dropdown"><i class="la la-angle-down"></i></button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="javascript:;">Action</a>
+                                        <a class="dropdown-item" href="javascript:;">Another action</a>
+                                        <a class="dropdown-item" href="javascript:;">Something else here</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}

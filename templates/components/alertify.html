@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block externalcss %}
+        <link href="{% static 'vendors/alertifyjs/dist/css/alertify.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Alertify</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Components</li>
+                    <li class="breadcrumb-item">Alertify</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <a class="btn btn-info mb-4" href="https://alertifyjs.org/" target="_blank">Official Website</a>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}
+
+{% block externaljs %}
+     <!-- PAGE LEVEL PLUGINS-->
+    <script src="{% static 'vendors/alertifyjs/dist/js/alertify.js' %}"></script>
+    <!-- PAGE LEVEL SCRIPTS-->
+    <script src="{% static 'js/scripts/alertify-demo.js' %}"></script>
+{% endblock %}

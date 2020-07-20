@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block externalcss %}
+    <link href="{% static 'vendors/bootstrap-sweetalert/dist/sweetalert.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Bootstrap Sweet Alert</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Components</li>
+                    <li class="breadcrumb-item">Bootstrap Sweet Alert</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <a class="btn btn-primary mb-4" href="http://lipis.github.io/bootstrap-sweetalert/" target="_blank">Official Website</a>
+                <div class="ibox">
+                    <div class="ibox-head">
+                        <div class="ibox-title">Sweet Alert examples</div>
+                    </div>
+                    <div class="ibox-body">
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <button class="btn btn-success sweet-1">Basic example</button>
+                                <pre><code>swal("Here's a message!", "Here's a under text");</code></pre><br>
+                                <p class="text-strong">...and by passing a parameter, you can execute something else for "Cancel".</p>
+                                <button class="btn btn-pink sweet-7">Try it</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+
+{% endblock %}
+
+{% block externaljs %}
+    <!-- PAGE LEVEL PLUGINS-->
+    <script src="{% static 'vendors/bootstrap-sweetalert/dist/sweetalert.min.js' %}"></script>
+    <!-- PAGE LEVEL SCRIPTS-->
+    <script src="{% static 'js/scripts/sweetalert-demo.js' %}"></script>
+{% endblock %}

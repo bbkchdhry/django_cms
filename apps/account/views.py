@@ -91,7 +91,72 @@ class toastr_page(APIView):
         context = {
             'title': 'Dashboard - Toastr'
         }
-        return render(request, 'basic_ui/toastr.html', context)
+        return render(request, 'components/toastr.html', context)
+
+
+class sweet_alert_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - SweetAlert'
+        }
+        return render(request, 'components/sweetalert.html', context)
+
+class alertify(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Alertify'
+        }
+        return render(request, 'components/alertify.html', context)
+
+class idle_timer_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Idle-Timer'
+        }
+        return render(request, 'components/idle_timer.html', context)
+
+class session_timeout_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Session-Timeout'
+        }
+        return render(request, 'components/session_timeout.html', context)
+
+class tree_view_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Tree View'
+        }
+        return render(request, 'components/tree_view.html', context)
+
+class nestable_list_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Nestable List'
+        }
+        return render(request, 'components/nestable.html', context)
+
+class clipboard_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Clipboard'
+        }
+        return render(request, 'components/clipboard.html', context)
+
+class button_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Buttons'
+        }
+        return render(request, 'buttons/buttons.html', context)
 
 class user_view(APIView):
     """APIView of the user..."""

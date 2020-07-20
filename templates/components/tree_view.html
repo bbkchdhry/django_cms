@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block externalcss %}
+    <link href="{% static 'vendors/jstree/dist/themes/default/style.min.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Tree view</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Components</li>
+                    <li class="breadcrumb-item">Tree view</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="alert alert-primary alert-bordered">
+                    <h4>jsTree jQuery Plugin</h4>
+                    <p>jsTree is jquery plugin, that provides interactive trees. It is absolutely free, open source and distributed under the MIT license. jsTree is easily extendable, themable and configurable, it supports HTML & JSON data sources and AJAX
+                        loading.</p>
+                    <p>
+                        <a class="btn btn-primary" href="https://www.jstree.com/" target="_blank">Official Website</a>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Basic</div>
+                            </div>
+                            <div class="ibox-body">
+                                <p>Basic example with icons Drag & Drop and Contextual Menu</p>
+                                <div id="jstree">
+                                    <ul>
+                                        <li class="jstree-open">Admin theme
+                                            <ul>
+                                                <li class="jstree-open">assets
+                                                    <ul>
+                                                        <li class="jstree-open">html
+                                                            <ul>
+                                                                <li data-jstree="{&quot;type&quot;:&quot;html&quot;}">index.html</li>
+                                                                <li data-jstree="{&quot;type&quot;:&quot;html&quot;}">dashboard.html</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>css
+                                                            <ul>
+                                                                <li data-jstree="{&quot;type&quot;:&quot;css&quot;}">style.css</li>
+                                                                <li data-jstree="{&quot;type&quot;:&quot;css&quot;}">plugins.css</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="jstree-open">js
+                                                            <ul>
+                                                                <li data-jstree="{&quot;type&quot;:&quot;js&quot;}">bootstrap.js</li>
+                                                                <li data-jstree="{&quot;type&quot;:&quot;js&quot;}">jquery.js</li>
+                                                                <li data-jstree="{&quot;type&quot;:&quot;js&quot;}">app.js</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>fonts
+                                                    <ul>
+                                                        <li data-jstree="{&quot;type&quot;:&quot;file&quot;}">glyphicons-halflings-regular.eot</li>
+                                                        <li data-jstree="{&quot;type&quot;:&quot;file&quot;}">glyphicons-halflings-regular.svg</li>
+                                                        <li data-jstree="{&quot;type&quot;:&quot;file&quot;}">glyphicons-halflings-regular.ttf</li>
+                                                        <li data-jstree="{&quot;type&quot;:&quot;file&quot;}">glyphicons-halflings-regular.woff</li>
+                                                    </ul>
+                                                </li>
+                                                <li class="jstree-open">img
+                                                    <ul>
+                                                        <li data-jstree="{&quot;type&quot;:&quot;img&quot;}">logo.jpg</li>
+                                                        <li data-jstree="{&quot;type&quot;:&quot;img&quot;}">logo-small.png</li>
+                                                        <li data-jstree="{&quot;type&quot;:&quot;img&quot;}">avatar.png</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Media
+                                                    <ul>
+                                                        <li data-jstree="{&quot;type&quot;:&quot;video&quot;}">video.avi</li>
+                                                        <li data-jstree="{&quot;type&quot;:&quot;video&quot;}">video2.avi</li>
+                                                        <li data-jstree="{&quot;type&quot;:&quot;audio&quot;}">audio.mp3</li>
+                                                        <li data-jstree="{&quot;type&quot;:&quot;audio&quot;}">audio2.mp3</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Docs
+                                                    <ul>
+                                                        <li data-jstree="{&quot;icon&quot;:&quot;fa fa-file-excel-o&quot;}">excel.xlsx</li>
+                                                        <li data-jstree="{&quot;icon&quot;:&quot;fa fa-file-word-o&quot;}">word.docx</li>
+                                                        <li data-jstree="{&quot;icon&quot;:&quot;fa fa-file-powerpoint-o&quot;}">powerpoint.pptx</li>
+                                                        <li data-jstree="{&quot;icon&quot;:&quot;fa fa-file-pdf-o&quot;}">layout.pdf</li>
+                                                    </ul>
+                                                </li>
+                                                <li class="text-success" data-jstree="{&quot;type&quot;:&quot;html&quot;}"> index.html</li>
+                                                <li data-jstree="{&quot;type&quot;:&quot;file&quot;}"> .htaccess</li>
+                                                <li data-jstree="{&quot;icon&quot;:&quot;fa fa-file-image-o&quot;}"> favicon.ico</li>
+                                                <li data-jstree="{&quot;icon&quot;:&quot;fa fa-file-archive-o&quot;}"> archive.zip</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">JSON data</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div id="jstree-json"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+
+{% endblock %}
+
+{% block externaljs %}
+    <!-- PAGE LEVEL PLUGINS-->
+    <script src="{% static 'vendors/jstree/dist/jstree.min.js' %}"></script>
+    <!-- PAGE LEVEL SCRIPTS-->
+    <script src="{% static 'js/scripts/tree-view-demo.js' %}"></script>
+{% endblock %}
