@@ -158,6 +158,14 @@ class button_page(APIView):
         }
         return render(request, 'buttons/buttons.html', context)
 
+class widget_list_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Widget List'
+        }
+        return render(request, 'widgets/widgets-list.html', context)
+
 class user_view(APIView):
     """APIView of the user..."""
     def get(self, request):

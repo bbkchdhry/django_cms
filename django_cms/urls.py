@@ -38,6 +38,7 @@ urlpatterns = [
     path('nestable/', views.nestable_list_page.as_view(), name="nestable_list_page"),
     path('clipbord/', views.clipboard_page.as_view(), name="clipboard_page"),
     path('buttons/', views.button_page.as_view(), name="button_page"),
+    path('widgetlist/', views.widget_list_page.as_view(), name="widget_list_page"),
     path('profile/', login_view.profile, name="profile"),
     path('dashboard/users/', include('apps.account.urls')),
     path('dashboard/roles/', include('apps.roles.urls')),
