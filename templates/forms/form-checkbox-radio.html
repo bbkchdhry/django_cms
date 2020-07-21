@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Checkbox &amp; Radio</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Form Controls</li>
+                    <li class="breadcrumb-item">Checkbox &amp; Radio</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Checkboxes</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="form-group">
+                                    <label class="checkbox">
+                                        <input type="checkbox" checked>
+                                        <span class="input-span"></span>Checked</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox disabled">
+                                        <input type="checkbox" disabled>
+                                        <span class="input-span"></span>Disabled</label>
+                                </div>
+                                <div class="text-muted mb-4 mt-4">Checkbox State Colors</div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="checkbox checkbox-primary">
+                                                <input type="checkbox">
+                                                <span class="input-span"></span>Primary</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="checkbox checkbox-primary">
+                                                <input type="checkbox" checked>
+                                                <span class="input-span"></span>Primary</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-muted mb-4 mt-4">Checkbox State Colors</div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="checkbox checkbox-grey checkbox-info">
+                                                <input type="checkbox">
+                                                <span class="input-span"></span>Info</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="checkbox checkbox-grey checkbox-info">
+                                                <input type="checkbox" checked>
+                                                <span class="input-span"></span>Info</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-muted mb-4 mt-4">Checkbox Outline State</div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="checkbox checkbox-outline-danger">
+                                                <input type="checkbox">
+                                                <span class="input-span"></span>Danger</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="checkbox checkbox-outline-danger">
+                                                <input type="checkbox" checked>
+                                                <span class="input-span"></span>Danger</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-muted mb-4 mt-4">Inline Checkboxes</div>
+                                <div class="form-group">
+                                    <div class="mb-2">
+                                        <label class="checkbox checkbox-inline">
+                                            <input type="checkbox">
+                                            <span class="input-span"></span>Option 1</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Radios</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="form-group">
+                                    <label class="radio">
+                                        <input type="radio" name="a">
+                                        <span class="input-span"></span>Default radio</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="radio radio-grey">
+                                        <input type="radio" name="a">
+                                        <span class="input-span"></span>Grey radio</label>
+                                </div>
+                                <div class="text-muted mb-4 mt-4">Radio State Colors</div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="radio radio-success">
+                                                <input type="radio" name="b">
+                                                <span class="input-span"></span>Success</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="radio radio-success">
+                                                <input type="radio" checked>
+                                                <span class="input-span"></span>Success</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-muted mb-4 mt-4">Radio State Colors</div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="radio radio-grey radio-warning">
+                                                <input type="radio" name="c">
+                                                <span class="input-span"></span>Warning</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="radio radio-grey radio-warning">
+                                                <input type="radio" checked>
+                                                <span class="input-span"></span>Warning</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-muted mb-4 mt-4">Radio Outline State</div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="radio radio-outline-blue">
+                                                <input type="radio" name="d">
+                                                <span class="input-span"></span>Blue</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="radio radio-outline-ebony">
+                                                <input type="radio" name="d">
+                                                <span class="input-span"></span>Ebony</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="radio radio-outline-blue">
+                                                <input type="radio" checked>
+                                                <span class="input-span"></span>Blue</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="radio radio-outline-ebony">
+                                                <input type="radio" checked>
+                                                <span class="input-span"></span>Ebony</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-muted mb-4 mt-4">Inline Radios</div>
+                                <div class="form-group">
+                                    <div class="mb-2">
+                                        <label class="radio radio-inline">
+                                            <input type="radio" name="e">
+                                            <span class="input-span"></span>Option 1</label>
+                                        <label class="radio radio-inline">
+                                            <input type="radio" name="e">
+                                            <span class="input-span"></span>Option 2</label>
+                                        <label class="radio radio-inline">
+                                            <input type="radio" name="e">
+                                            <span class="input-span"></span>Option 3</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}

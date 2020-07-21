@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Form Wizard</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Forms</li>
+                    <li class="breadcrumb-item">Form Wizard</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="alert alert-primary alert-bordered">
+                    <h4>jQuery Steps</h4>
+                    <p>An all-in-one wizard plugin that is extremely flexible, compact and feature-rich.</p>
+                    <p>
+                        <a class="btn btn-primary" href="http://www.jquery-steps.com/" target="_blank">Official Site</a>
+                    </p>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-head">
+                        <div class="ibox-title">Steps with validation</div>
+                    </div>
+                    <div class="ibox-body">
+                        <form id="form-wizard" action="javascript:;" novalidate="novalidate">
+                            <h6>Step 1</h6>
+                            <section>
+                                <h3>Account Details</h3>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input class="form-control required email" id="email" type="text" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input class="form-control required" id="password" type="password" name="password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirm Password</label>
+                                    <input class="form-control required" id="confirm" type="password" name="confirm">
+                                </div>
+                            </section>
+                            <h6>Step 2</h6>
+                            <section>
+                                <h3>Profile Details</h3>
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input class="form-control required" id="name" type="text" name="name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input class="form-control required" id="surname" type="text" name="surname">
+                                </div>
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <input class="form-control required" id="address" type="text" name="address">
+                                </div>
+                            </section>
+                            <h6>Step 3</h6>
+                            <section>
+                                <div class="text-center">
+                                    <h3>You did it Man</h3><i class="fa fa-smile-o text-success" style="font-size:120px;"></i></div>
+                            </section>
+                            <h6>Step 4</h6>
+                            <section>
+                                <h3>Terms and Conditions</h3>
+                                <label class="ui-checkbox ui-checkbox-success">
+                                    <input class="required" id="acceptTerms" type="checkbox" name="acceptTerms">
+                                    <span class="input-span"></span>I agree with the Terms and Conditions.</label>
+                            </section>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}
+
+{% block externaljs %}
+        <script src="{% static 'vendors/jquery.steps/build/jquery.steps.min.js' %}"></script>
+        <script>
+        $(function() {
+            $('#form-wizard').steps({
+                headerTag: "h6",
+                bodyTag: "section",
+                titleTemplate: '<span class="step-number">#index#</span> #title#',
+                onStepChanging: function(event, currentIndex, newIndex) {
+                    var form = $(this);
+                    // Always allow going backward even if the current step contains invalid fields!
+                    if (currentIndex > newIndex) {
+                        return true;
+                    }
+
+                    // Clean up if user went backward before
+                    if (currentIndex < newIndex) {
+                        // To remove error styles
+                        $(".body:eq(" + newIndex + ") label.error", form).remove();
+                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                    }
+
+                    // Disable validation on fields that are disabled or hidden.
+                    form.validate().settings.ignore = ":disabled,:hidden";
+
+                    // Start validation; Prevent going forward if false
+                    return form.valid();
+                },
+                onFinishing: function(event, currentIndex) {
+                    var form = $(this);
+                    form.validate().settings.ignore = ":disabled";
+                    return form.valid();
+                },
+                onFinished: function(event, currentIndex) {
+                    toastr.success('Submitted!');
+                }
+            }).validate({
+                errorPlacement: function errorPlacement(error, element) {
+                    error.insertAfter(element);
+                },
+                rules: {
+                    confirm: {
+                        equalTo: "#password"
+                    }
+                },
+                errorClass: "help-block error",
+                highlight: function(e) {
+                    $(e).closest(".form-group").addClass("has-error")
+                },
+                unhighlight: function(e) {
+                    $(e).closest(".form-group").removeClass("has-error")
+                },
+            });
+        })
+    </script>
+{% endblock %}

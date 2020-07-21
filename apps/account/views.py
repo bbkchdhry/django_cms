@@ -166,6 +166,118 @@ class widget_list_page(APIView):
         }
         return render(request, 'widgets/widgets-list.html', context)
 
+class form_control_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Form Control'
+        }
+        return render(request, 'forms/form-controls.html', context)
+
+class form_switch_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Form Switch'
+        }
+        return render(request, 'forms/form-switch.html', context)
+
+class form_layout_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Form Layout'
+        }
+        return render(request, 'forms/form_layouts.html', context)
+
+class form_input_group_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Form Input Group'
+        }
+        return render(request, 'forms/form-input-groups.html', context)
+
+class form_checkbox_radio_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Form Checkbox-Radio'
+        }
+        return render(request, 'forms/form-checkbox-radio.html', context)
+
+class form_advanced_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Form Advanced'
+        }
+        return render(request, 'forms/form_advanced.html', context)
+
+class form_mask_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Form Mask'
+        }
+        return render(request, 'forms/form_masks.html', context)
+
+class form_validation_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Form Validation'
+        }
+        return render(request, 'forms/form_validation.html', context)
+
+class text_editor_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Text Editor'
+        }
+        return render(request, 'forms/text_editors.html', context)
+
+class form_dropzone_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Form Dropzone'
+        }
+        return render(request, 'forms/form_dropzone.html', context)
+
+class image_cropping_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Image Cropping'
+        }
+        return render(request, 'forms/image_cropping.html', context)
+
+class autocomplete_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Auto Complete'
+        }
+        return render(request, 'forms/autocomplete.html', context)
+
+class datatables_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Datatables'
+        }
+        return render(request, 'forms/datatables.html', context)
+
+class form_wizard_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Form Wizard'
+        }
+        return render(request, 'forms/form_wizard.html', context)
+
 class user_view(APIView):
     """APIView of the user..."""
     def get(self, request):

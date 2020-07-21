@@ -1,0 +1,307 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block externalcss %}
+    <link href="{% static 'vendors/select2/dist/css/select2.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/ion.rangeSlider/css/ion.rangeSlider.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/smalot-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/clockpicker/dist/bootstrap-clockpicker.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/jquery-minicolors/jquery.minicolors.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/multiselect/css/multi-select.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/bootstrap-tagsinput/dist/bootstrap-tagsinput.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Advanced Plugins</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Forms</li>
+                    <li class="breadcrumb-item">Advanced Plugins</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Select 2
+                                    <a class="btn btn-sm btn-primary ml-2" href="https://select2.github.io/" target="_blank">Official site</a>
+                                </div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="form-group">
+                                    <label class="form-control-label">Multiple select</label>
+                                    <select class="form-control select2_demo_1" multiple="">
+                                        <optgroup label="Alaskan/Hawaiian Time Zone">
+                                            <option value="AK">Alaska</option>
+                                            <option value="HI">Hawaii</option>
+                                        </optgroup>
+                                        <optgroup label="Pacific Time Zone">
+                                            <option value="CA">California</option>
+                                            <option value="NV">Nevada</option>
+                                            <option value="OR">Oregon</option>
+                                            <option value="WA">Washington</option>
+                                        </optgroup>
+                                        <optgroup label="Mountain Time Zone">
+                                            <option value="AZ">Arizona</option>
+                                            <option value="CO">Colorado</option>
+                                            <option value="ID">Idaho</option>
+                                            <option value="MT">Montana</option>
+                                            <option value="NE">Nebraska</option>
+                                            <option value="NM">New Mexico</option>
+                                            <option value="ND">North Dakota</option>
+                                            <option value="UT">Utah</option>
+                                            <option value="WY">Wyoming</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Date picker
+                                    <a class="btn btn-sm btn-primary ml-2" href="https://github.com/uxsolutions/bootstrap-datepicker" target="_blank">Official site</a>
+                                </div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="form-group" id="date_1">
+                                    <label class="font-normal"></label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                                        <input class="form-control" type="text" value="04/12/2017">
+                                    </div>
+                                </div>
+                                <div class="form-group" id="date_2">
+                                    <label class="font-normal">One Year view</label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        <input class="form-control" type="text" value="07/11/2017">
+                                    </div>
+                                </div>
+                                <div class="form-group" id="date_3">
+                                    <label class="font-normal">Decade view</label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        <input class="form-control" type="text" value="08/12/2017">
+                                    </div>
+                                </div>
+                                <div class="form-group" id="date_4">
+                                    <label class="font-normal">Month select</label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        <input class="form-control" type="text" value="06/12/2017">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">DateTime Picker
+                                    <a class="btn btn-sm btn-primary ml-2" href="https://www.malot.fr/bootstrap-datetimepicker" target="_blank">Official site</a>
+                                </div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="form-group">
+                                    <label class="font-normal">Basic example</label>
+                                    <div class="input-group date form_datetime">
+                                        <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                                        <input class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Date Range Picker
+                                    <a class="btn btn-sm btn-primary ml-2" href="http://www.daterangepicker.com/" target="_blank">Official site</a>
+                                </div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="form-group">
+                                    <label>Date Range Picker</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        <input class="form-control" id="daterange_1" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Date and Time</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                                        <input class="form-control" id="daterange_2" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Predefined Ranges</label>
+                                    <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%;"><i class="fa fa-calendar mr-2"></i>
+                                        <span></span><b class="caret"></b></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Single Date Picker</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        <input class="form-control" id="daterange_3" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Knob - Dial
+                                    <a class="btn btn-sm btn-primary ml-2" href="https://github.com/aterrien/jQuery-Knob" target="_blank">Official site</a>
+                                </div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="row">
+                                    <div class="col-sm-4 mb-4">
+                                        <input class="dial" value="45" data-width="85" data-height="85" type="text">
+                                    </div>
+                                    <div class="col-sm-4 mb-4">
+                                        <input class="dial" value="20" data-width="85" data-height="85" data-fgcolor="#f75a5f" data-cursor="true" data-thicknessx=".3" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Ion Range Sliders
+                                    <a class="btn btn-sm btn-primary ml-2" href="https://github.com/IonDen/ion.rangeSlider" target="_blank">Official site</a>
+                                </div>
+                            </div>
+                            <div class="ibox-body">
+                                <input id="ionrange_1" type="text"><br><br>
+                                <input id="ionrange_2" type="text"><br><br>
+                            </div>
+                        </div>
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Tags Input
+                                    <a class="btn btn-sm btn-primary ml-2" href="https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/" target="_blank">Official site</a>
+                                </div>
+                            </div>
+                            <div class="ibox-body">
+                                <input class="tagsinput form-control" type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo">
+                            </div>
+                        </div>
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Maxlength Control
+                                    <a class="btn btn-sm btn-primary ml-2" href="https://github.com/mimo84/bootstrap-maxlength" target="_blank">Official site</a>
+                                </div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="3" maxlength="75" placeholder="This textarea has a limit of 75 chars."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">TouchSpin
+                                    <a class="btn btn-sm btn-primary ml-2" href="http://www.virtuosoft.eu/code/bootstrap-touchspin/" target="_blank">Official site</a>
+                                </div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="form-group">
+                                    <label>Basic example with empty value</label>
+                                    <input class="touchspin1" value="" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Example with postfix</label>
+                                    <input class="touchspin2" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Vertical button alignment</label>
+                                    <input class="touchspin3" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Multi-Select
+                                    <a class="btn btn-sm btn-primary ml-2" href="http://loudev.com/" target="_blank">Official site</a>
+                                </div>
+                            </div>
+                            <div class="ibox-body">
+                                <select class="multi-select" id="multi_select" multiple="multiple" name="multi_select[]">
+                                    <option>Dallas Cowboys</option>
+                                    <option>New York Giants</option>
+                                    <option selected="">Philadelphia Eagles</option>
+                                    <option selected="">Washington Redskins</option>
+                                    <option>Chicago Bears</option>
+                                    <option>Detroit Lions</option>
+                                    <option>Green Bay Packers</option>
+                                    <option>Minnesota Vikings</option>
+                                    <option selected="">Atlanta Falcons</option>
+                                    <option>Carolina Panthers</option>
+                                    <option>New Orleans Saints</option>
+                                    <option>Tampa Bay Buccaneers</option>
+                                    <option>Arizona Cardinals</option>
+                                    <option>St. Louis Rams</option>
+                                    <option>San Francisco 49ers</option>
+                                    <option>Seattle Seahawks</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}
+
+
+{% block externaljs %}
+    <script src="{% static 'vendors/select2/dist/js/select2.full.min.js' %}"></script>
+    <script src="{% static 'vendors/jquery-knob/dist/jquery.knob.min.js' %}"></script>
+    <script src="{% static 'vendors/ion.rangeSlider/js/ion.rangeSlider.min.js' %}"></script>
+    <script src="{% static 'vendors/moment/min/moment.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'vendors/smalot-bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+    <script src="{% static 'vendors/clockpicker/dist/bootstrap-clockpicker.min.js' %}"></script>
+    <script src="{% static 'vendors/jquery-minicolors/jquery.minicolors.min.js' %}"></script>
+    <script src="{% static 'vendors/multiselect/js/jquery.multi-select.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap-maxlength/src/bootstrap-maxlength.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js' %}"></script>
+    <script src="{% static 'js/scripts/form-plugins.js' %}"></script>
+{% endblock %}

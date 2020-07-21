@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block externalcss %}
+    <link href="{% static 'vendors/summernote/dist/summernote.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/bootstrap-markdown/css/bootstrap-markdown.min.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Text Editors</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Text Editors</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="ibox">
+                    <div class="ibox-head">
+                        <div class="ibox-title">Summernote Editor
+                            <a class="btn btn-sm btn-primary ml-2" href="http://summernote.org/" target="_blank">Official site</a>
+                        </div>
+                    </div>
+                    <div class="ibox-body">
+                        <div id="summernote" data-plugin="summernote" data-air-mode="true">
+                            <h2>WYSIWYG Editor</h2> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ullamcorper sapien non nisl facilisis bibendum in quis tellus. Duis in urna bibendum turpis pretium fringilla. Aenean neque velit, porta eget
+                            mattis ac, imperdiet quis nisi. Donec non dui et tortor vulputate luctus. Praesent consequat rhoncus velit, ut molestie arcu venenatis sodales.
+                            <h4>Lacinia</h4>
+                            <ul>
+                                <li>Suspendisse tincidunt urna ut velit ullamcorper fermentum.</li>
+                                <li>Nullam mattis sodales lacus, in gravida sem auctor at.</li>
+                                <li>Praesent non lacinia mi.</li>
+                                <li>Mauris a ante neque.</li>
+                                <li>Aenean ut magna lobortis nunc feugiat sagittis.</li>
+                            </ul>
+                            <h4>Pellentesque Adipiscing</h4> Maecenas quis ante ante. Nunc adipiscing rhoncus rutrum. Pellentesque adipiscing urna mi, ut tempus lacus ultrices ac. Pellentesque sodales, libero et mollis interdum, dui odio vestibulum dolor,
+                            eu pellentesque nisl nibh quis nunc. Sed porttitor leo adipiscing venenatis vehicula. Aenean quis viverra enim. Praesent porttitor ut ipsum id ornare.</div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}
+
+{% block externaljs %}
+    <script src="{% static 'vendors/summernote/dist/summernote.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap-markdown/js/bootstrap-markdown.js' %}"></script>
+    <script>
+        $(function() {
+            $('#summernote').summernote();
+            $('#summernote_air').summernote({
+                airMode: true
+            });
+        });
+    </script>
+{% endblock %}
