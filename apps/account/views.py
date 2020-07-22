@@ -2,21 +2,19 @@ import json
 
 from django.forms import model_to_dict
 from django.shortcuts import render, redirect
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
+from .delete_authenticate import deleteAuthenticate
 from rest_framework import status
 from rest_framework.views import APIView
 from .forms import UserForm, UserRolesForm
 from .models import User, User_role
 from .serializers import UserSerializers, UserRolesSerializers
 from .hashing import get_salt, hash_string
-from rest_framework import HTTP_HEADER_ENCODING
-import ast
-# Create your views here.
 from ..login.decorators import my_login_required
 from apps.roles.models import Role
-from django.contrib import messages
+
+
+# Create your views here.
 
 class user_page(APIView):
     """View to render user.html page"""
@@ -278,6 +276,102 @@ class form_wizard_page(APIView):
         }
         return render(request, 'forms/form_wizard.html', context)
 
+class chart_js_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - ChartJs'
+        }
+        return render(request, 'chartjs/chartjs.html', context)
+
+class google_map_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Google Map'
+        }
+        return render(request, 'maps/maps_google.html', context)
+
+class calendar_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Calendar'
+        }
+        return render(request, 'pages/calendar.html', context)
+
+class faq_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - FAQ'
+        }
+        return render(request, 'pages/faq.html', context)
+
+class login_v2_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - LogIn v2'
+        }
+        return render(request, 'pages/custom_pages/user_page/login-2.html', context)
+
+class login_v3_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - LogIn v3'
+        }
+        return render(request, 'pages/custom_pages/user_page/login-4.html', context)
+
+class login_v4_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - LogIn v4'
+        }
+        return render(request, 'pages/custom_pages/user_page/login-5.html', context)
+
+class forgot_password_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Forgot Password'
+        }
+        return render(request, 'pages/custom_pages/user_page/forgot_password.html', context)
+
+class error_404_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Error 404'
+        }
+        return render(request, 'pages/custom_pages/error_page/error_404.html', context)
+
+class error_403_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Error 403'
+        }
+        return render(request, 'pages/custom_pages/error_page/error_403.html', context)
+
+class error_500_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Error 500'
+        }
+        return render(request, 'pages/custom_pages/error_page/error_500.html', context)
+
+class maintenance_page(APIView):
+    @my_login_required
+    def get(self, request):
+        context = {
+            'title': 'Dashboard - Maintenance'
+        }
+        return render(request, 'pages/custom_pages/error_page/maintenance.html', context)
+
 class user_view(APIView):
     """APIView of the user..."""
     def get(self, request):
@@ -347,6 +441,26 @@ class user_view_detail(APIView):
         instance = self.get_object(id)
         instance.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class deleteConfirmation(APIView):
+    def post(self, request, password):
+        user = deleteAuthenticate(request, password)
+        if user:
+            return Response(status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+
+# def deleteConfirmation(request, password):
+#     user = request.session['username']
+#     user_model = User.objects.get(user_name = user)
+#     salt = user_model.salt
+#
+#     print(user)
+#     print(user_model)
+#     print("password is: ")
+#     print(password)
 
 
 class user_role_page(APIView):

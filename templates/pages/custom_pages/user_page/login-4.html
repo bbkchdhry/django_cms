@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block externalcss %}
+    <style>
+        body {
+            background-image: url(../../../../static/img/blog/18.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .login-content {
+            max-width: 400px;
+            margin: 100px auto 50px;
+        }
+
+        .auth-head-icon {
+            position: relative;
+            height: 60px;
+            width: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            background-color: #fff;
+            color: #ff4081;
+            box-shadow: 0 5px 20px #d6dee4;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="ibox login-content">
+        <div class="text-center">
+            <span class="auth-head-icon"><i class="la la-user"></i></span>
+        </div>
+        <form class="ibox-body form-pink" id="login-form" action="javascript:;" method="POST">
+            <h4 class="font-strong text-center mb-5">LOG IN</h4>
+            <div class="form-group mb-4">
+                <input class="form-control form-control-rounded form-control-air form-control-lg" type="text" name="email" placeholder="Email">
+            </div>
+            <div class="form-group mb-4">
+                <input class="form-control form-control-rounded form-control-air form-control-lg" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="flexbox mb-5">
+                <span>
+                    <label class="ui-switch ui-switch-pink switch-icon mr-2 mb-0">
+                        <input type="checkbox" checked="">
+                        <span></span>
+                    </label>Remember</span>
+                <a class="text-pink" href="forgot_password.html">Forgot password?</a>
+            </div>
+            <div class="text-center mb-4">
+                <button class="btn btn-pink btn-lg btn-rounded btn-fix btn-air" style="width:200px;">LOGIN</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block externaljs %}
+    <!-- PAGE LEVEL SCRIPTS-->
+    <script>
+        $(function() {
+            $('#login-form').validate({
+                errorClass: "help-block",
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true
+                    }
+                },
+                highlight: function(e) {
+                    $(e).closest(".form-group").addClass("has-error")
+                },
+                unhighlight: function(e) {
+                    $(e).closest(".form-group").removeClass("has-error")
+                },
+            });
+        });
+    </script>
+{% endblock %}

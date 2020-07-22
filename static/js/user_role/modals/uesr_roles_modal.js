@@ -8,6 +8,12 @@ $("#add_user_roles").on("click", function(e){
     console.log("User Roles Clicked....")
 })
 
+$(modal).on("click", function(e){
+    if(e.target === e.currentTarget){
+        toggleUserRolesModal();
+    }
+})
+
 $(".modal_container_close").on("click", function (e){
   toggleUserRolesModal();
   document.querySelector("#post_user_roles").reset();

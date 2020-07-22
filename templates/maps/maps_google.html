@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block externalcss %}
+    <style>
+        .google-map {
+            height: 300px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Google maps</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Maps</li>
+                    <li class="breadcrumb-item">Google maps</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="alert alert-primary alert-bordered">
+                    <p class="mb-0">Google Maps: for more options and examples see the official
+                        <a href="https://developers.google.com/maps/documentation/javascript/tutorial" target="_blank">official documentation</a>
+                    </p>
+                    <p>Or you can use plugins for easy operation. For example
+                        <a class="text-success" href="https://hpneo.github.io/gmaps/" target="_blank">gmaps.js</a>
+                    </p>
+                    <p>
+                        <a class="btn btn-primary" href="https://developers.google.com/maps/documentation/javascript/tutorial" target="_blank">Official Website</a>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Simple Map</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="google-map" id="map_1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Styled Map - Night Mode</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="google-map" id="map_2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Street view</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="google-map" id="map_3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Map Satellite type</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="google-map" id="map_4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}
+
+{% block externaljs %}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeEBUVFBBEB74t72GUzfQqgBO9vUTJ4VM"></script>
+    <script src="{% static 'js/scripts/google-maps-demo.js' %}"></script>
+{% endblock %}

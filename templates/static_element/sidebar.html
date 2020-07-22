@@ -163,25 +163,7 @@
                         <span class="nav-label">Charts</span><i class="fa fa-angle-left arrow"></i></a>
                     <ul class="nav-2-level collapse">
                         <li>
-                            <a href="charts_flot.html">Flot Charts</a>
-                        </li>
-                        <li>
-                            <a href="charts_morris.html">Morris Charts</a>
-                        </li>
-                        <li>
-                            <a href="chartjs.html">Chart.js</a>
-                        </li>
-                        <li>
-                            <a href="c3.html">C3 Charts</a>
-                        </li>
-                        <li>
-                            <a href="charts_peity.html">Peity Charts</a>
-                        </li>
-                        <li>
-                            <a href="charts_sparkline.html">Sparkline Charts</a>
-                        </li>
-                        <li>
-                            <a href="charts_rickshaw.html">Rickshaw Charts</a>
+                            <a href="{% url 'chart_js_page' %}">Chart.js</a>
                         </li>
                     </ul>
                 </li>
@@ -190,68 +172,13 @@
                         <span class="nav-label">Maps</span><i class="fa fa-angle-left arrow"></i></a>
                     <ul class="nav-2-level collapse">
                         <li>
-                            <a href="maps_google.html">Google maps</a>
-                        </li>
-                        <li>
-                            <a href="datamaps.html">Datamaps</a>
-                        </li>
-                        <li>
-                            <a href="maps_vector.html">Vector maps</a>
+                            <a href="{% url 'google_map_page' %}">Google maps</a>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="icons.html"><i class="sidebar-item-icon ti-comments-smiley"></i>
-                        <span class="nav-label">Icons</span>
-                    </a>
                 </li>
                 <li class="heading">PAGES</li>
                 <li>
-                    <a href="mailbox.html"><i class="sidebar-item-icon ti-email"></i>
-                        <span class="nav-label">Mailbox</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;"><i class="sidebar-item-icon ti-pencil"></i>
-                        <span class="nav-label">Blog</span><i class="fa fa-angle-left arrow"></i></a>
-                    <ul class="nav-2-level collapse">
-                        <li>
-                            <a href="blog_list.html">List</a>
-                        </li>
-                        <li>
-                            <a href="article.html">Article</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;"><i class="sidebar-item-icon ti-shopping-cart"></i>
-                        <span class="nav-label">E-Commerce</span><i class="fa fa-angle-left arrow"></i></a>
-                    <ul class="nav-2-level collapse">
-                        <li>
-                            <a href="dashboard_ecommerce.html">Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="ecommerce_products_list.html">Products list</a>
-                        </li>
-                        <li>
-                            <a href="ecommerce_add_product.html">Add new product</a>
-                        </li>
-                        <li>
-                            <a href="ecommerce_orders_list.html">Orders list</a>
-                        </li>
-                        <li>
-                            <a href="ecommerce_order_details.html">Order details</a>
-                        </li>
-                        <li>
-                            <a href="invoice.html">Invoice</a>
-                        </li>
-                        <li>
-                            <a href="ecommerce_customers.html">Customers</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="calendar.html"><i class="sidebar-item-icon ti-calendar"></i>
+                    <a href="{% url 'calendar_page' %}"><i class="sidebar-item-icon ti-calendar"></i>
                         <span class="nav-label">Calendar</span>
                     </a>
                 </li>
@@ -260,34 +187,7 @@
                         <span class="nav-label">General Pages</span><i class="fa fa-angle-left arrow"></i></a>
                     <ul class="nav-2-level collapse">
                         <li>
-                            <a href="faq.html">FAQ</a>
-                        </li>
-                        <li>
-                            <a href="search.html">Search</a>
-                        </li>
-                        <li>
-                            <a href="timeline.html">Timeline</a>
-                        </li>
-                        <li>
-                            <a href="timeline_horizontal.html">Horizontal timeline</a>
-                        </li>
-                        <li>
-                            <a href="pricing-table-1.html">Pricing Table v1</a>
-                        </li>
-                        <li>
-                            <a href="pricing-table-2.html">Pricing Table v2</a>
-                        </li>
-                        <li>
-                            <a href="pricing-table-3.html">Pricing Table v3</a>
-                        </li>
-                        <li>
-                            <a href="pricing-table-4.html">Pricing Table v4</a>
-                        </li>
-                        <li>
-                            <a href="pricing-table-5.html">Pricing Table v5</a>
-                        </li>
-                        <li>
-                            <a href="pricing-table-6.html">Pricing Table v6</a>
+                            <a href="{% url 'faq_page' %}">FAQ</a>
                         </li>
                     </ul>
                 </li>
@@ -300,28 +200,16 @@
                                 <span class="nav-label">User Pages</span><i class="fa fa-angle-left arrow"></i></a>
                             <ul class="nav-3-level collapse">
                                 <li>
-                                    <a href="profile.html">Profile</a>
+                                    <a href="{% url 'login_v2_page' %}">Login v2</a>
                                 </li>
                                 <li>
-                                    <a href="../login.html">Login v1</a>
+                                    <a href="{% url 'login_v3_page' %}">Login v3</a>
                                 </li>
                                 <li>
-                                    <a href="login-2.html">Login v2</a>
+                                    <a href="{% url 'login_v4_page' %}">Login v4</a>
                                 </li>
                                 <li>
-                                    <a href="login-3.html">Login v3</a>
-                                </li>
-                                <li>
-                                    <a href="login-4.html">Login v4</a>
-                                </li>
-                                <li>
-                                    <a href="login-5.html">Login v5</a>
-                                </li>
-                                <li>
-                                    <a href="lockscreen.html">Lockscreen</a>
-                                </li>
-                                <li>
-                                    <a href="forgot_password.html">Forgot password</a>
+                                    <a href="{% url 'forgot_password_page' %}">Forgot password</a>
                                 </li>
                             </ul>
                         </li>
@@ -330,19 +218,16 @@
                                 <span class="nav-label">Error Pages</span><i class="fa fa-angle-left arrow"></i></a>
                             <ul class="nav-3-level collapse">
                                 <li>
-                                    <a href="error_404.html">404 error</a>
+                                    <a href="{% url 'error_404_page' %}">404 error</a>
                                 </li>
                                 <li>
-                                    <a href="error_404-2.html">404 error v2</a>
+                                    <a href="{% url 'error_403_page' %}">403 error</a>
                                 </li>
                                 <li>
-                                    <a href="error_403.html">403 error</a>
+                                    <a href="{% url 'error_500_page' %}">500 error</a>
                                 </li>
                                 <li>
-                                    <a href="error_500.html">500 error</a>
-                                </li>
-                                <li>
-                                    <a href="maintenance.html">Maintenance Mode</a>
+                                    <a href="{% url 'maintenance_page' %}">Maintenance Mode</a>
                                 </li>
                             </ul>
                         </li>
@@ -352,9 +237,6 @@
                     <a href="javascript:;"><i class="sidebar-item-icon ti-anchor"></i>
                         <span class="nav-label">Menu Levels</span><i class="fa fa-angle-left arrow"></i></a>
                     <ul class="nav-2-level collapse">
-                        <li>
-                            <a href="javascript:;">Level 2</a>
-                        </li>
                         <li>
                             <a href="javascript:;">
                                 <span class="nav-label">Level 2</span><i class="fa fa-angle-left arrow"></i></a>

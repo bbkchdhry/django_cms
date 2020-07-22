@@ -10,8 +10,6 @@ let datatables =
      columns: [
          {"data": "id"},
          {"data": "user_name"},
-         {"data": "salt",},
-         {"data": "hashed_password"},
          {"data": "first_name"},
          {"data": "last_name"},
          {"data": "email"},
@@ -31,20 +29,20 @@ let datatables =
             targets: 'no-sort',
             orderable: false
         }],
-     aoColumnDefs: [
-         {
-             aTargets: "salt",
-             fnCreatedCell: function (td) {
-                 $(td).css('word-break', 'break-all')
-             }
-         },
-         {
-             aTargets: "hashed_password",
-             fnCreatedCell: function(td){
-                 $(td).css('word-break', 'break-all')
-             }
-         }
-     ]
+     // aoColumnDefs: [
+     //     {
+     //         aTargets: "salt",
+     //         fnCreatedCell: function (td) {
+     //             $(td).css('word-break', 'break-all')
+     //         }
+     //     },
+     //     {
+     //         aTargets: "hashed_password",
+     //         fnCreatedCell: function(td){
+     //             $(td).css('word-break', 'break-all')
+     //         }
+     //     }
+     // ]
 });
 
 $('#searchbar').on('keyup', function() {
@@ -101,30 +99,47 @@ function delete_user(data){
     let user = $(data).parent().siblings()[1].textContent;
     Swal.fire({
         title: 'Are you sure?',
-        text: "You won't be able to revert this! ",
+        text: 'Enter password',
+        input: 'password',
+        preConfirm: (password) => {
+            return fetch(`deleteConf/${password}`, {
+                method: "post"
+            })
+                .then(response=>{
+                    if(!response.ok){
+                        throw new Error("Invalid Password...")
+                    }
+                    return response
+                })
+                .catch(error => {
+                    Swal.showValidationMessage(
+                         `${error}`
+                    )
+                })
+        },
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: "#d33",
         confirmButtonText: 'Yes, delete it',
-    }).then((result)=>{
-        if(result.value){
-            Swal.fire(
-                'Deleted!',
-                `User ${user} has been deleted.`,
-                'success'
-            )
-            $.ajax({
-            url: 'delete/'+userId,
-            type: "delete",
-            dataType: "json",
-            success: function (){
-                $(data).parent().parent().remove();
-                datatables.ajax.reload();
+        }).then((result)=>{
+            if(result.value){
+                Swal.fire(
+                    'Deleted!',
+                    `User ${user} has been deleted.`,
+                    'success'
+                )
+                $.ajax({
+                url: 'delete/'+userId,
+                type: "delete",
+                dataType: "json",
+                success: function (){
+                    $(data).parent().parent().remove();
+                    datatables.ajax.reload();
+                }
+            })
             }
         })
-        }
-    })
 }
 
 function get_edit_modal(data){
