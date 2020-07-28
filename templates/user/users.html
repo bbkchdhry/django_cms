@@ -18,15 +18,14 @@
             <div class="page-content fade-in-up">
 
                 <h1 class="page-title mb-3">User List</h1>
-
+                <div class="input-group-icon input-group-icon-left pt-4 mb-4">
+                    <span class="input-icon input-icon-right font-16 pt-4"><i class="ti-search"></i></span>
+                    <input class="form-control search-input-datatable" type="text" placeholder="Search..." id="searchbar">
+                </div>
                 <div class="ibox ibox-fullheight">
                     <div class="flexbox mb-4">
                         <div id="add_user" class="btn btn-success btn-rounded ml-3 mt-3">
                             <a href=""><i class="fas fa-user-plus"></i> Add User</a>
-                        </div>
-                        <div class="input-group-icon input-group-icon-left mr-3 pt-4 pr-4">
-                            <span class="input-icon input-icon-right font-16 pt-4"><i class="ti-search"></i></span>
-                            <input class="form-control form-control-rounded form-control-solid" id="key-search" type="text" placeholder="Search ...">
                         </div>
                     </div>
                     <div class="table-responsive row">
@@ -56,9 +55,6 @@
             {% include 'user/modals/update_user_modal.html' %}
         </div>
     </div>
-    <!-- START SEARCH PANEL-->
-    {% include 'static_element/searchtopbar.html' %}
-    <!-- END SEARCH PANEL-->
     <!-- BEGIN THEME CONFIG PANEL-->
     {% include 'static_element/themeconfig.html' %}
     <!-- END THEME CONFIG PANEL-->
