@@ -76,3 +76,50 @@
 .search-input-datatable{
     min-height: 50px;
 }
+
+div.dataTables_wrapper div.dataTables_info{
+    float: left;
+    margin: 0 0 10px 10px;
+}
+
+div.dataTables_wrapper div.dataTables_paginate{
+    margin: 12px!important;
+}
+
+.django_message {
+    position: absolute;
+    top: 75px;
+    right: 0;
+
+}
+
+.django_message p{
+    color: black;
+    font-size: 15px;
+    height: 41px;
+    padding-top: 20px;
+}
+
+.alert{
+    border-radius: 20px 0 0 0;
+}
+
+.close, .close_btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 0 0 0 5px;
+}
+
+.close{
+    padding-right: 1.5px!important;
+}
+
+.close_btn{
+    padding: 10px;
+    background: rgba(64, 111, 103, 1);
+}
+
+th, td{
+    text-align: center;
+}

@@ -28,27 +28,25 @@
                             <div class="ibox-head">
                                 <div class="ibox-title">Basic form</div>
                             </div>
-                            <form class="form-info" action="javascript:;">
+                            <form class="form-info" action="javascript:;" method="post" id="basic_form">{% csrf_token %}
                                 <div class="ibox-body">
                                     <div class="row">
                                         <div class="col-sm-6 form-group mb-4">
                                             <label>First Name</label>
-                                            <input class="form-control" type="text" placeholder="First Name">
+                                            <input class="form-control" type="text" placeholder="First Name" name="basic_first_name">
                                         </div>
                                         <div class="col-sm-6 form-group mb-4">
                                             <label>Last Name</label>
-                                            <input class="form-control" type="text" placeholder="Last Name">
+                                            <input class="form-control" type="text" placeholder="Last Name" name="basic_last_name">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
-                                        <div class="input-group">
-                                            <input class="form-control" type="text" placeholder="Email">
-                                            <span class="input-group-addon">@example.com</span>
-                                        </div>
+                                            <label>Email</label>
+                                            <input class="form-control" type="text" placeholder="Email" name="basic_email">
                                     </div>
                                     <div class="form-group mb-4">
                                         <label>Password</label>
-                                        <input class="form-control" type="password" placeholder="Password">
+                                        <input class="form-control" type="password" placeholder="Password" name="basic_password">
                                     </div>
                                     <div class="form-group mb-0">
                                         <label>Gender</label>
@@ -63,7 +61,7 @@
                                     </div>
                                 </div>
                                 <div class="ibox-footer">
-                                    <button class="btn btn-info mr-2" type="button">Submit</button>
+                                    <button class="btn btn-info mr-2" type="submit">Submit</button>
                                     <button class="btn btn-secondary" type="reset">Cancel</button>
                                 </div>
                             </form>
@@ -74,24 +72,24 @@
                             <div class="ibox-head">
                                 <div class="ibox-title">Horizontal Form</div>
                             </div>
-                            <form class="form-horizontal" action="javascript:;">
+                            <form class="form-horizontal" action="javascript:;" method="post" id="horizontal_form">{% csrf_token %}
                                 <div class="ibox-body">
                                     <div class="form-group mb-4 row">
                                         <label class="col-sm-2 col-form-label">Email</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" placeholder="Email address">
+                                            <input class="form-control" type="text" placeholder="Email address" name="horizontal_email">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4 row">
                                         <label class="col-sm-2 col-form-label">Username</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" placeholder="Username">
+                                            <input class="form-control" type="text" placeholder="Username" name="horizontal_username">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4 row">
                                         <label class="col-sm-2 col-form-label">Password</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="password" placeholder="Password">
+                                            <input class="form-control" type="password" placeholder="Password" name="horizontal_password">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4 row">
@@ -110,13 +108,13 @@
                                         <div class="col-sm-10">
                                             <div class="check-list">
                                                 <label class="checkbox checkbox-grey checkbox-primary">
-                                                    <input type="checkbox">
+                                                    <input type="checkbox" name="email">
                                                     <span class="input-span"></span>Email</label>
                                                 <label class="checkbox checkbox-grey checkbox-primary">
-                                                    <input type="checkbox">
+                                                    <input type="checkbox" name="sms">
                                                     <span class="input-span"></span>SMS</label>
                                                 <label class="checkbox checkbox-grey checkbox-primary">
-                                                    <input type="checkbox">
+                                                    <input type="checkbox" name="phone">
                                                     <span class="input-span"></span>Phone</label>
                                             </div>
                                         </div>
@@ -124,7 +122,7 @@
                                 </div>
                                 <div class="ibox-footer row">
                                     <div class="col-sm-10 ml-sm-auto">
-                                        <button class="btn btn-primary mr-2" type="button">Submit</button>
+                                        <button class="btn btn-primary mr-2" type="submit">Submit</button>
                                         <button class="btn btn-secondary" type="reset">Cancel</button>
                                     </div>
                                 </div>
@@ -135,27 +133,29 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="ibox">
-                            <form class="form-purple" action="javascript:;">
+                            <form class="form-purple" action="javascript:;" method="post" id="iconic_form">{% csrf_token %}
                                 <div class="ibox-head">
                                     <div class="ibox-title">Iconic form</div>
                                 </div>
                                 <div class="ibox-body">
                                     <div class="form-group mb-4">
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-addon"><i class="ti-user"></i></span>
-                                            <input class="form-control" type="text" placeholder="Username">
+                                        <div class="row" style="margin-left: 0; margin-right: 0;" >
+                                             <span class="input-group-addon col-sm-1"><i class="ti-user"></i></span>
+                                            <input class="form-control col-sm-11" type="text" placeholder="Username" name="username">
                                         </div>
+
+
                                     </div>
                                     <div class="form-group mb-4">
                                          <div class="input-group mb-3">
                                             <span class="input-group-addon"><i class="ti-email"></i></span>
-                                            <input class="form-control" type="text" placeholder="Email">
+                                            <input class="form-control" type="text" placeholder="Email" name="email">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="ti-lock"></i></span>
-                                            <input class="form-control" type="password" placeholder="Password">
+                                            <input class="form-control" type="password" placeholder="Password" name="password">
                                         </div>
                                     </div>
                                     <div class="form-group mb-0">
@@ -165,7 +165,7 @@
                                     </div>
                                 </div>
                                 <div class="ibox-footer">
-                                    <button class="btn btn-primary mr-2" type="button">Submit</button>
+                                    <button class="btn btn-primary mr-2" type="submit">Submit</button>
                                     <button class="btn btn-outline-secondary" type="reset">Cancel</button>
                                 </div>
                             </form>
@@ -380,4 +380,106 @@
     <!-- QUICK SIDEBAR-->
     {% include 'static_element/quicksidebar.html' %}
     <!-- END QUICK SIDEBAR-->
+{% endblock %}
+
+{% block externaljs %}
+    <script>
+    $(function () {
+        $('#basic_form').validate({
+            rules: {
+                basic_first_name: "required",
+                basic_last_name: "required",
+                basic_email: {
+                    required: true,
+                    email: true
+                },
+                basic_password: {
+                    required: true,
+                    minlength: 6
+                }
+            },
+            messages: {
+                basic_first_name: "Please enter firstname.",
+                basic_last_name: "Please enter lastname.",
+                basic_email: {
+                    required: 'Please enter email address.',
+                    email: 'Email not valid.'
+                },
+                basic_password: {
+                    required: "Please provide password.",
+                    email: "Password must be 6 character long."
+                }
+
+            },
+            highlight: function (e) {
+                $(e).closest(".form-group").addClass("has-error")
+            },
+            unhighlight: function (e) {
+                $(e).closest(".form-group").removeClass("has-error")
+            }
+        })
+        $('#horizontal_form').validate({
+            rules: {
+                horizontal_email: {
+                    required: true,
+                    email: true,
+                },
+                horizontal_username: "required",
+                horizontal_password: {
+                    required: true,
+                    minlength: 6,
+                },
+                email: 'required'
+            },
+            messages: {
+                horizontal_email: {
+                    required: "Please enter email",
+                    email: "Email not valid",
+                },
+                horizontal_username: "Please enter username",
+                horizontal_password: {
+                    required: "Please enter password",
+                    minlength: "Password must be 6 character long.",
+                }
+            },
+            highlight: function(e){
+                $(e).closest(".form-group").addClass("has-error")
+            },
+            unhighlight: function (e){
+                $(e).closest(".form-group").removeClass("has-error")
+            }
+        });
+        $("#iconic_form").validate({
+            rules:{
+                username: "required",
+                email: {
+                    required: true,
+                    email: true,
+                },
+                password:{
+                  required: true,
+                  minlength: 6,
+                }
+            },
+            messages:{
+                username: "Please enter username",
+                email: {
+                    required: "Please enter email",
+                    email: "Email not valid"
+                },
+                password: {
+                    required: "Please enter password",
+                    minlength: "Password must be 6 character long."
+                }
+            },
+            highlight: function(e){
+                $(e).closest(".form-group").addClass('has-error');
+            },
+            unhighlight: function(e){
+                $(e).closest(".form-group").removeClass('has-error');
+            }
+
+        })
+    });
+    </script>
 {% endblock %}

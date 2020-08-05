@@ -148,5 +148,5 @@ $(document).on("submit", "#edit_user_roles", function (e){
 })
 
 $(function(){
-    $(".chosen-select").select2({width: "100%", id: "roles"});
+    $(".chosen-select").select2({width: "100%"});
 });

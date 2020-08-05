@@ -28,21 +28,16 @@ let datatables =
          {
             targets: 'no-sort',
             orderable: false
-        }],
-     // aoColumnDefs: [
-     //     {
-     //         aTargets: "salt",
-     //         fnCreatedCell: function (td) {
-     //             $(td).css('word-break', 'break-all')
-     //         }
-     //     },
-     //     {
-     //         aTargets: "hashed_password",
-     //         fnCreatedCell: function(td){
-     //             $(td).css('word-break', 'break-all')
-     //         }
-     //     }
-     // ]
+        },
+     ],
+     aoColumnDefs: [
+         {
+             aTargets: 4,
+             fnCreatedCell: function (td) {
+                 $(td).css('word-break', 'break-all');
+             }
+         },
+     ]
 });
 
 $('#searchbar').on('keyup', function() {
