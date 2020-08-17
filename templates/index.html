@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block externalcss %}
-        <link href="{% static 'vendors/jvectormap/jquery-jvectormap-2.0.3.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/jvectormap/jquery-jvectormap-2.0.3.css' %}" rel="stylesheet" />
 {% endblock %}
 
 {% block content %}
@@ -871,12 +871,6 @@
             {% include 'static_element/footer.html' %}
         </div>
     </div>
-    <!-- START SEARCH PANEL-->
-    {% include 'static_element/searchtopbar.html' %}
-    <!-- END SEARCH PANEL-->
-    <!-- BEGIN THEME CONFIG PANEL-->
-    {% include 'static_element/themeconfig.html' %}
-    <!-- END THEME CONFIG PANEL-->
     <!-- New question dialog-->
     {% include 'static_element/session-dialog.html' %}
     <!-- End New question dialog-->

@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block externalcss %}
+        <style>
+            .content-wrapper{
+                margin-left: 17%;
+            }
+        </style>
         <link href="{% static 'vendors/jvectormap/jquery-jvectormap-2.0.3.css' %}" rel="stylesheet" />
 {% endblock %}
 
@@ -215,7 +220,7 @@
                                 <ul class="media-list media-list-divider mr-2 scroller" data-height="400px">
                                     <li class="media align-items-center">
                                         <a class="media-img" href="javascript:;">
-                                            <img class="img-circle" src="assets/img/users/u8.jpg" alt="image" width="54" />
+                                            <img class="img-circle" src="{% static 'img/users/u8.jpg' %}" alt="image" width="54" />
                                         </a>
                                         <div class="media-body d-flex align-items-center">
                                             <div class="flex-1">
@@ -225,7 +230,7 @@
                                     </li>
                                     <li class="media align-items-center">
                                         <a class="media-img" href="javascript:;">
-                                            <img class="img-circle" src="assets/img/users/u6.jpg" alt="image" width="54" />
+                                            <img class="img-circle" src="{% static 'img/users/u6.jpg' %}" alt="image" width="54" />
                                         </a>
                                         <div class="media-body d-flex align-items-center">
                                             <div class="flex-1">
@@ -235,7 +240,7 @@
                                     </li>
                                     <li class="media align-items-center">
                                         <a class="media-img" href="javascript:;">
-                                            <img class="img-circle" src="assets/img/users/u11.jpg" alt="image" width="54" />
+                                            <img class="img-circle" src="{% static 'img/users/u11.jpg' %}" alt="image" width="54" />
                                         </a>
                                         <div class="media-body d-flex align-items-center">
                                             <div class="flex-1">
@@ -245,7 +250,7 @@
                                     </li>
                                     <li class="media align-items-center">
                                         <a class="media-img" href="javascript:;">
-                                            <img class="img-circle" src="assets/img/users/u10.jpg" alt="image" width="54" />
+                                            <img class="img-circle" src="{% static 'img/users/u10.jpg' %}" alt="image" width="54" />
                                         </a>
                                         <div class="media-body d-flex align-items-center">
                                             <div class="flex-1">
@@ -255,7 +260,7 @@
                                     </li>
                                     <li class="media align-items-center">
                                         <a class="media-img" href="javascript:;">
-                                            <img class="img-circle" src="assets/img/users/u2.jpg" alt="image" width="54" />
+                                            <img class="img-circle" src="{% static 'img/users/u2.jpg' %}" alt="image" width="54" />
                                         </a>
                                         <div class="media-body d-flex align-items-center">
                                             <div class="flex-1">
@@ -265,7 +270,7 @@
                                     </li>
                                     <li class="media align-items-center">
                                         <a class="media-img" href="javascript:;">
-                                            <img class="img-circle" src="assets/img/users/u5.jpg" alt="image" width="54" />
+                                            <img class="img-circle" src="{% static 'img/users/u5.jpg' %}" alt="image" width="54" />
                                         </a>
                                         <div class="media-body d-flex align-items-center">
                                             <div class="flex-1">
@@ -594,7 +599,7 @@
                                 <ul class="media-list media-list-divider">
                                     <li class="media">
                                         <a class="media-img" href="javascript:;">
-                                            <img src="assets/img/products/01.jpg" alt="image" height="100" />
+                                            <img src="{% static 'img/products/01.jpg' %}" alt="image" height="100" />
                                         </a>
                                         <div class="media-body d-flex">
                                             <div class="flex-1">
@@ -617,7 +622,7 @@
                                     </li>
                                     <li class="media">
                                         <a class="media-img" href="javascript:;">
-                                            <img src="assets/img/products/02.jpg" alt="image" height="100" />
+                                            <img src="{% static 'img/products/02.jpg' %}" alt="image" height="100" />
                                         </a>
                                         <div class="media-body d-flex">
                                             <div class="flex-1">
@@ -644,7 +649,7 @@
                                     </li>
                                     <li class="media">
                                         <a class="media-img" href="javascript:;">
-                                            <img src="assets/img/products/03.jpg" alt="image" height="100" />
+                                            <img src="{% static 'img/products/03.jpg' %}" alt="image" height="100" />
                                         </a>
                                         <div class="media-body d-flex">
                                             <div class="flex-1">
@@ -741,18 +746,6 @@
              {% include 'static_element/footer.html' %}
         </div>
      </div>
-     <!-- START SEARCH PANEL-->
-    {% include 'static_element/searchtopbar.html' %}
-    <!-- END SEARCH PANEL-->
-    <!-- BEGIN THEME CONFIG PANEL-->
-    {% include 'static_element/themeconfig.html' %}
-    <!-- END THEME CONFIG PANEL-->
-    <!-- BEGIN PAGA BACKDROPS-->
-    <div class="sidenav-backdrop backdrop"></div>
-    <div class="preloader-backdrop">
-        <div class="page-preloader">Loading</div>
-    </div>
-    <!-- END PAGA BACKDROPS-->
     <!-- New question dialog-->
      {% include 'static_element/session-dialog.html' %}
     <!-- End New question dialog-->

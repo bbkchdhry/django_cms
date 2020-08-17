@@ -9,6 +9,13 @@
     --header-bg-color: #5c6bc0;
     --footer-bg-color: #fff;
     --alert-primary-background-color: #fff;
+    --side-item-a-color: #71808f;
+    --side-item-li-hover: #ebedf7;
+    --datatable-previous-bg: #fff;
+    --datatable-previous-color: #868e96;
+    --datatable-header: #ebedee;
+    --ibox-card-canvas: #fff;
+    --text-success: #18c5a9!important;
 
 }
 
@@ -23,7 +30,27 @@
     --header-bg-color: #1c1e21;
     --footer-bg-color: #1c1e21;
     --alert-primary-background-color: rgb(28, 30, 33);
+    --side-item-a-color: #e4e6eb;
+    --side-item-li-hover: #3a3b3c;
+    --datatable-previous-bg: #1c1e21;
+    --datatable-previous-color: #e1e1ff;
+    --datatable-header: #262626;
+    --ibox-card-canvas: #1c1e21;
+
 }
+
+[data-theme="sleek"]{
+    --bg-color: #5ab9ea;
+    --ibox-card-canvas: #84ceeb;
+    --text-success: #28a745!important;
+    --header-bg-color: #16aaff !important;
+
+}
+
+.text-success{
+    color: var(--text-success);
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--font-color);
@@ -48,9 +75,11 @@ h1 {
     background-color: var(--footer-bg-color);
 }
 
-.nav-pills.nav-pills-air .nav-link.active{
+.nav-pills.nav-pills-air .nav-link.active,
+.btn-air{
     box-shadow: var(--nav-pills-box-shodow);
 }
+
 
 
 .theme-switch-wrapper {
@@ -63,7 +92,8 @@ h1 {
     font-size: 1rem;
 }
 
-.theme-switch {
+.dark-theme-switch,
+.sleek-theme-switch{
     display: inline-block;
     height: 34px;
     position: relative;
@@ -71,7 +101,8 @@ h1 {
 }
 
 
-.theme-switch input {
+.dark-theme-switch input,
+.sleek-theme-switch input{
     display:none;
 }
 
@@ -111,4 +142,40 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+.side-menu>li.active>a{
+    color: white;
+}
+
+.side-menu li a,
+.side-menu li .sidebar-item-icon{
+    color: var(--side-item-a-color);
+}
+.side-menu li .sidebar-item-icon{
+    transition: none!important;
+    -webkit-transition: none!important;
+}
+
+
+.side-menu li a:hover,
+.side-menu li a:hover .sidebar-item-icon{
+    background-color: var(--side-item-li-hover);
+    color: var(--side-item-a-color);
+
+}
+
+.previous a,
+.next a{
+    background-color: var(--datatable-previous-bg) !important;
+    color: var(--datatable-previous-color) !important;
+
+}
+
+.table thead{
+    background-color: var(--datatable-header) !important;
+}
+
+.card canvas{
+    background-color: var(--ibox-card-canvas) !important;
 }
