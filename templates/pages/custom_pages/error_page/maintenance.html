@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block externalcss %}
+    <style>
+        body {
+            background-color: #fff;
+            background-repeat: no-repeat;
+            background-image: url(../../../../static/img/icons/tools-2.svg);
+            background-position: 80% 10px;
+        }
+
+        .error-content {
+            max-width: 620px;
+            margin: 200px auto 0;
+        }
+
+        .error-icon {
+            height: 160px;
+            width: 160px;
+            background-image: url(../../../../static/img/icons/tools.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin-right: 80px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="error-content flexbox">
+        <span class="error-icon"></span>
+        <div class="flex-1">
+            <h3 class="font-strong mb-3 text-primary">MAINTENANCE MODE</h3>
+            <h5 class="font-strong mb-4">We'll be back in a few minutes.</h5>
+            <p class="mb-4">Please wait for a few minutes. Sorry for the inconvenience but we're performing some maintenance at the moment.</p>
+        </div>
+    </div>
+{% endblock %}

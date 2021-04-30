@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">jQuery Idle Timer</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Components</li>
+                    <li class="breadcrumb-item">jQuery Idle Timer</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="alert alert-primary alert-bordered">
+                    <p>provides you a way to monitor user activity with a page.</p>
+                    <p>
+                        <a class="btn btn-primary" href="https://github.com/thorst/jquery-idletimer" target="_blank">Official Website</a>
+                    </p>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-body">
+                        <div class="text-center" style="margin-bottom:50px;">
+                            <h5>Keep your mouse and keyboard still for 5 second</h5><i class="fa fa-mouse-pointer fa-4x"></i></div>
+                        <p>The idle timer is built on jQuery and provides two events: idle.idleTimer and active.idleTimer, which fire when the user's idle state has changed.</p>
+                        <p>When you move your mouse over the page or start typing, you're considered "active".</p>
+                        <p>Fires a custom event when the user is "idle". Idle is defined by not...</p>
+                        <ul>
+                            <li>moving the mouse</li>
+                            <li>scrolling the mouse wheel</li>
+                            <li>using the keyboard</li>
+                        </ul><br>
+                        <p class="text-muted">Basic Usage</p>
+                        <pre><code>$(function(){
+    // Set idle time
+    $( document ).idleTimer( 5000 );
+
+    $( document ).on( "idle.idleTimer", function(event, elem, obj){
+        // function you want to fire when the user goes idle
+    });
+
+    $( document ).on( "active.idleTimer", function(event, elem, obj, triggerevent){
+        // function you want to fire when the user becomes active again
+    });
+});
+</code></pre>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}
+
+{% block externaljs %}
+     <!-- PAGE LEVEL SCRIPTS-->
+    <script>
+        $(function() {
+            // Set idle time
+            $(document).idleTimer(5000);
+            //$( document ).idleTimer("destroy");
+
+
+            $(document).on("idle.idleTimer", function(event, elem, obj) {
+                // function you want to fire when the user goes idle
+                toastr.warning('You can call any function when the user goes idle.', 'Idle time');
+                //$('<audio id="chatAudio"><source src="/assets/audio/notify/notify.ogg" type="audio/ogg"><source src="/assets/audio/notify/notify.mp3" type="audio/mpeg"><source src="/assets/audio/notify/notify.wav" type="audio/wav"></audio>').appendTo('body');
+                //$('#chatAudio')[0].play();
+            });
+
+            $(document).on("active.idleTimer", function(event, elem, obj, triggerevent) {
+                // function you want to fire when the user becomes active again
+                toastr.clear();
+                toastr.success('You returned to the active mode.', 'You are back.');
+            });
+
+        });
+    </script>
+{% endblock %}

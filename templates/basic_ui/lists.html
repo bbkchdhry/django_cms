@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Lists</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Basic UI</li>
+                    <li class="breadcrumb-item">Lists</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="ibox ibox-fullheight">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Timeline List</div>
+                            </div>
+                            <div class="ibox-body">
+                                <ul class="timeline">
+                                    <li class="timeline-item">
+                                        <span class="timeline-point"></span>2 Issue fixed<small class="float-right text-muted ml-2 nowrap">Just now</small></li>
+                                    <li class="timeline-item">
+                                        <span class="timeline-point bg-warning"></span>
+                                        <span>7 new feedback
+                                            <span class="badge badge-warning badge-pill ml-2">important</span>
+                                        </span><small class="float-right text-muted">5 mins</small></li>
+                                    <li class="timeline-item">
+                                        <span class="timeline-point bg-purple"></span>
+                                        <span class="flexbox">25 new orders sent<i class="la la-truck font-16 ml-2 text-purple"></i></span><small class="float-right text-muted ml-2 nowrap">24 mins</small></li>
+                                    <li class="timeline-item">
+                                        <span class="timeline-point"></span>12 New orders<small class="float-right text-muted ml-2 nowrap">45 mins</small></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="ibox ibox-fullheight">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Timeline List</div>
+                            </div>
+                            <div class="ibox-body">
+                                <ul class="timeline">
+                                    <li class="timeline-item"><i class="ti-user timeline-icon"></i>18 new users registered<small class="float-right text-muted ml-2 nowrap">1 hrs</small></li>
+                                    <li class="timeline-item"><i class="ti-harddrives timeline-icon"></i>
+                                        <span>Server Error
+                                            <span class="badge badge-success badge-pill ml-2">resolved</span>
+                                        </span><small class="float-right text-muted">2 hrs</small></li>
+                                    <li class="timeline-item"><i class="ti-info-alt timeline-icon"></i>
+                                        <span>System Warning
+                                            <a class="text-purple ml-2">Check</a>
+                                        </span><small class="float-right text-muted ml-2 nowrap">12:07</small></li>
+                                    <li class="timeline-item"><i class="fa fa-file-excel-o timeline-icon"></i>The invoice is ready<small class="float-right text-muted ml-2 nowrap">12:30</small></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="ibox ibox-fullheight">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Base List groups</div>
+                            </div>
+                            <div class="ibox-body">
+                                <p>The most basic list group is an unordered list with list items and the proper classes. Build upon it with the options that follow, or with your own CSS as needed.</p>
+                                <h5 class="mt-4 mb-4 font-strong">WITH DIVIDER LINE & BADGES</h5>
+                                <ul class="list-group list-group-full list-group-divider">
+                                    <li class="list-group-item active">Active item</li>
+                                    <li class="list-group-item disabled flexbox">Disabled item
+                                        <span class="badge badge-danger badge-pill">HOT</span>
+                                    </li>
+                                </ul>
+                                <h5 class="mt-5 mb-5 font-strong">BORDERED</h5>
+                                <ul class="list-group list-group-bordered">
+                                    <li class="list-group-item active flexbox">1. Active item
+                                        <span class="badge badge-success">72</span>
+                                    </li>
+                                    <li class="list-group-item flexbox">2. Dapibus ac facilisis in
+                                        <span class="badge badge-pink">4</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="ibox ibox-fullheight">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Media List</div>
+                            </div>
+                            <div class="ibox-body">
+                                <ul class="media-list media-list-divider">
+                                    <li class="media align-items-center">
+                                        <a class="media-img" href="javascript:;">
+                                            <img class="img-circle" src="{% static 'img/users/u8.jpg' %}" alt="image" width="54" />
+                                        </a>
+                                        <div class="media-body d-flex align-items-center">
+                                            <div class="flex-1">
+                                                <div class="media-heading">Lynn Weaver</div><small class="text-muted">Lorem Ipsum is simply dummy</small></div>
+                                            <button class="btn btn-sm btn-outline-secondary btn-rounded">Follow</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <hr class="mt-4 mb-4">
+                                <ul class="media-list list-unstyled">
+                                    <li class="media">
+                                        <a class="media-img" href="javascript:;">
+                                            <img class="img-circle" src="{% static 'img/users/u10.jpg' %}" alt="image" width="40" />
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">Stella Obrien</h6><small>Director</small></div>
+                                        <div class="media-right"><i class="fa fa-heart-o font-16 text-purple"></i></div>
+                                    </li>
+                                </ul>
+                                <hr class="mt-4 mb-4">
+                                <ul class="media-list">
+                                    <li class="media">
+                                        <a class="media-img" href="javascript:;">
+                                            <img src="{% static 'img/users/u10.jpg' %}" alt="image" width="45" />
+                                        </a>
+                                        <div class="media-body">
+                                            <div class="media-heading">
+                                                <a class="comment-author" href="javascript:;">Becky Brooks</a><small class="text-muted ml-2">5 days ago</small>
+                                                <div class="pull-right font-13">
+                                                    <a class="text-muted mr-2" data-toggle="tooltip" data-original-title="Like"><i class="fa fa-heart"></i></a>
+                                                    <a class="text-muted" data-toggle="tooltip" data-original-title="Reply"><i class="fa fa-reply"></i></a>
+                                                </div>
+                                            </div>
+                                            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.</p>
+                                            <div class="media">
+                                                <a class="media-img" href="javascript:;">
+                                                    <img src="{% static 'img/users/u11.jpg' %}" alt="image" width="45" />
+                                                </a>
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        <a class="comment-author" href="javascript:;">Tyrone Carroll</a><small class="text-muted ml-2">5 days ago</small>
+                                                        <div class="pull-right font-13">
+                                                            <a class="text-muted mr-2" data-toggle="tooltip" data-original-title="Like"><i class="fa fa-heart"></i></a>
+                                                            <a class="text-muted" data-toggle="tooltip" data-original-title="Reply"><i class="fa fa-reply"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <p>Cras sit amet nibh libero, in gravida nulla.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}

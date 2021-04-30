@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Switches</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Form Controls</li>
+                    <li class="breadcrumb-item">Switches</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Basic Usage</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="form-group row">
+                                    <div class="col-3">Default Switch</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch">
+                                            <input type="checkbox">
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-3">Checked</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-3">Large</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-icon switch-large">
+                                            <input type="checkbox">
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-3">Checked</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-icon switch-large">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Switch State Colors</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="form-group row mb-4">
+                                    <div class="col-3">Primary</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-icon">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-3">Success</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-icon switch-success">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="text-muted mb-4">Outline</div>
+                                <div class="form-group row mb-4">
+                                    <div class="col-3">Info</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-icon switch-info switch-large switch-outline">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-3">Warning</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-icon switch-warning switch-large switch-outline">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Switch State Colors</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div class="text-muted mb-4">Solid with icons</div>
+                                <div class="form-group row mb-4">
+                                    <div class="col-3">Primary</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-icon switch-solid-primary switch-large">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-3">Info</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-icon switch-solid-info switch-large">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-4">
+                                    <div class="col-3">Success</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-icon switch-solid-success switch-large">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-3">Warning</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-icon switch-solid-warning switch-large">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="text-muted mb-4">Solid variant</div>
+                                <div class="form-group row mb-4">
+                                    <div class="col-3">Pink</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-solid-pink switch-large">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-3">Danger</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-solid-danger switch-large">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-4">
+                                    <div class="col-3">Blue</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-solid-blue switch-large">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-3">Ebony</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-solid-ebony switch-large">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="text-muted mb-4">Square</div>
+                                <div class="form-group row mb-4">
+                                    <div class="col-3">Primary</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-icon switch-large switch-square">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-3">Success</div>
+                                    <div class="col-3">
+                                        <label class="ui-switch switch-icon switch-success switch-large switch-square">
+                                            <input type="checkbox" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+           {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}

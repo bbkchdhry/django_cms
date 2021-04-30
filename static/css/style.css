@@ -1,0 +1,125 @@
+/* modal */
+.user_modal,
+.role_modal,
+.edit_user_modal,
+.edit_role_modal,
+.user_roles_modal,
+.edit_user_roles_modal{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.modal_container,
+.edit_modal_container{
+    top: 60px;
+    position: relative;
+    background: #FFFFFF;
+    width: 40%;
+    max-height: 85%;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+.modal_container_close,
+.edit_modal_container_close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 3px 15px;
+    margin: 0;
+    background: rgba(230, 12, 12, 0.5);
+    color: rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 0 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.5s ease-in-out;
+}
+
+.ibox-title{
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid red;
+}
+
+.nav-pills .nav-link-1.active {
+    background-color: #5c6bc0;
+    color: #fff
+}
+
+.nav-pills .nav-link-2.active {
+    background-color: #18c5a9;
+    color: #fff
+}
+
+.nav-pills .nav-link-3.active {
+    background-color: #5c6bc0;
+    color: #fff
+}
+
+.search-input-datatable{
+    min-height: 50px;
+}
+
+div.dataTables_wrapper div.dataTables_info{
+    float: left;
+    margin: 0 0 10px 10px;
+}
+
+div.dataTables_wrapper div.dataTables_paginate{
+    margin: 12px!important;
+}
+
+.django_message {
+    position: absolute;
+    top: 75px;
+    right: 0;
+
+}
+
+.django_message p{
+    color: black;
+    font-size: 15px;
+    height: 41px;
+    padding-top: 20px;
+}
+
+.alert{
+    border-radius: 20px 0 0 0;
+}
+
+.close, .close_btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 0 0 0 5px;
+}
+
+.close{
+    padding-right: 1.5px!important;
+}
+
+.close_btn{
+    padding: 10px;
+    background: rgba(64, 111, 103, 1);
+}
+
+th, td{
+    text-align: center;
+}

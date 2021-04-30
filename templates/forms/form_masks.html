@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Form masks</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Forms</li>
+                    <li class="breadcrumb-item">Form masks</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="alert alert-primary alert-bordered">
+                    <h4>Masked Input Plugin</h4>
+                    <p>This is a masked input plugin for the jQuery javascript library. It allows a user to more easily enter fixed width input where you would like them to enter the data in a certain format (dates,phone numbers, etc).</p>
+                    <p>
+                        <a class="btn btn-primary" href="https://github.com/digitalBush/jquery.maskedinput" target="_blank">Official Site</a>
+                    </p>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-head">
+                        <div class="ibox-title">Input Masks</div>
+                        <div class="ibox-tools">
+                            <a class="ibox-collapse"><i class="ti-angle-down"></i></a>
+                        </div>
+                    </div>
+                    <div class="ibox-body">
+                        <form class="form-horizontal">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Date</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="ex-date" type="text">
+                                    <span class="help-block">Data format dd/mm/yyyy
+                                        <span></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Phone</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="ex-phone" type="text">
+                                    <span class="help-block">Data format (999) 999-9999</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Phone 2</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="ex-phone2" type="text">
+                                    <span class="help-block">Data format +186 999 999-9999</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Extention</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="ex-ext" type="text">
+                                    <span class="help-block">Data format (999) 999-9999? x9999</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Credit card</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="ex-credit" type="text">
+                                    <span class="help-block">Data format ****-****-****-****</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Tax ID</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="ex-tax" type="text">
+                                    <span class="help-block">Data format 99-9999999</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Currency</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="ex-currency" type="text">
+                                    <span class="help-block">Data format $ 99.99</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Product Key</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="ex-product" type="text">
+                                    <span class="help-block">Data format a*-999-a999</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Eye Script</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="ex-eye" type="text">
+                                    <span class="help-block">Data format ~9.99 ~9.99 999</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}
+
+{% block externaljs %}
+    <script src="{% static 'vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js' %}"></script>
+    <script>
+        $(function() {
+            $('#ex-date').mask('99/99/9999', {
+                placeholder: 'dd/mm/yyyy'
+            });
+            $('#ex-phone').mask('(999) 999-9999');
+            $('#ex-phone2').mask('+186 999 999-9999');
+            $('#ex-ext').mask('(999) 999-9999? x9999');
+            $('#ex-credit').mask('****-****-****-****', {
+                placeholder: '*'
+            });
+            $('#ex-tax').mask('99-9999999');
+            $('#ex-currency').mask('$ 99.99');
+            $('#ex-product').mask('a*-999-a999', {
+                placeholder: 'a*-999-a999'
+            });
+
+            $.mask.definitions['~'] = '[+-]';
+            $('#ex-eye').mask('~9.99 ~9.99 999');
+        })
+    </script>
+{% endblock %}

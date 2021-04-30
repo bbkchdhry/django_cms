@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="page-wrapper">
+         <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Bootstrap Session Timeout</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Components</li>
+                    <li class="breadcrumb-item">Bootstrap Session Timeout</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="alert alert-primary alert-bordered">
+                    <p>After a set amount of time, a dialog is shown to the user with the option to either log out now, or stay connected. If log out now is selected, the page is redirected to a logout URL. If stay connected is selected, a keep-alive URL
+                        is requested through AJAX. If no options is selected after another set amount of time, the page is automatically redirected to a timeout URL.</p>
+                    <p>
+                        <a class="btn btn-primary" href="https://github.com/orangehill/bootstrap-session-timeout" target="_blank">Official Website</a>
+                    </p>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-body">
+                        <h4>The warning dialog will fire after <b>5 seconds</b>. The page will redirect after <b>15 seconds</b> with no activity.</h4>
+                        <p class="text-muted">Basic Usage</p>
+                        <pre><code>$.sessionTimeout({
+    title:"Session Timeout Notification",
+    message:"Your session is about to expire.",
+    keepAliveUrl:"demo-timeout-keep-alive.php",
+    redirUrl:"lockscreen.html",
+    logoutUrl:"lockscreen.html",
+    warnAfter:5000,
+    redirAfter:15000,
+    ignoreUserActivity:true,
+    countdownMessage:"Redirecting in &lt;span class='label label-warning'>{timer}&lt;/span> seconds.",
+     countdownBar:true
+})
+</code></pre>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}
+
+{% block externaljs %}
+      <!-- PAGE LEVEL PLUGINS-->
+    <script src="{% static 'vendors/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js' %}"></script>
+    <!-- PAGE LEVEL SCRIPTS-->
+    <script>
+        $(function() {
+            $.sessionTimeout({
+                title: "Session Timeout Notification",
+                message: "Your session is about to expire.",
+                keepAliveUrl: "/demo-timeout-keep-alive.php",
+                redirUrl: "lockscreen.html",
+                logoutUrl: "lockscreen.html",
+                warnAfter: 5000,
+                redirAfter: 15000,
+                ignoreUserActivity: true,
+                countdownMessage: "Redirecting in <span class='label label-warning'>{timer}</span> seconds.",
+                countdownBar: true
+            })
+        });
+    </script>
+{% endblock %}

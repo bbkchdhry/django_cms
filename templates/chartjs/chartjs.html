@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Chart.js</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Charts</li>
+                    <li class="breadcrumb-item">Chart.js</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="alert alert-primary alert-bordered">
+                    <p>Simple yet flexible JavaScript charting for designers & developers.</p>
+                    <p>
+                        <a class="btn btn-primary" href="http://www.chartjs.org/" target="_blank">Official Website</a>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Line Chart</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div>
+                                    <canvas id="line_chart" style="height:200px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Bar Chart</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div>
+                                    <canvas id="bar_chart" style="height:200px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Polar Area</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div>
+                                    <canvas id="polar_chart" style="height:200px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ibox">
+                            <div class="ibox-head">
+                                <div class="ibox-title">Doughnut Chart</div>
+                            </div>
+                            <div class="ibox-body">
+                                <div>
+                                    <canvas id="doughnut_chart" style="height:200px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-head">
+                        <div class="ibox-title">Radar Chart</div>
+                    </div>
+                    <div class="ibox-body">
+                        <div>
+                            <canvas id="radar_chart" style="height:200px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html'%}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}
+
+{% block externaljs %}
+    <script src="{% static 'vendors/chart.js/dist/Chart.min.js' %}"></script>
+    <script src="{% static 'js/scripts/chartjs_demo.js' %}"></script>
+{% endblock %}

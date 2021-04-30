@@ -1,0 +1,16 @@
+[
+{
+    "model": "account.user",
+    "pk": 28,
+    "fields": {
+        "user_name": "admin",
+        "salt": "1a38bdc029084ef9b8280837ab2785ae",
+        "hashed_password": "0adb5a826b3c380fed40cb8ea2d2c383",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@gmail.com",
+        "is_superuser": true,
+        "is_active": true
+    }
+}
+]

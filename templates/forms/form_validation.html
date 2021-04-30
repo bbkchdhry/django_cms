@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- START HEADER-->
+        {% include 'static_element/header.html' %}
+        <!-- END HEADER-->
+        <!-- START SIDEBAR-->
+        {% include 'static_element/sidebar.html' %}
+        <!-- END SIDEBAR-->
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-heading">
+                <h1 class="page-title">Form Validation</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard' %}"><i class="la la-home font-20"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">Forms</li>
+                    <li class="breadcrumb-item">Form Validation</li>
+                </ol>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="alert alert-primary alert-bordered">
+                    <h4>jQuery Validation Plugin</h4>
+                    <p>This jQuery plugin makes simple clientside form validation easy, whilst still offering plenty of customization options. For more info please check out</p>
+                    <p>
+                        <a class="btn btn-primary" href="https://jqueryvalidation.org/" target="_blank">Official Site</a>
+                    </p>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-head">
+                        <div class="ibox-title">Basic Validation</div>
+                        <div class="ibox-tools">
+                            <a class="ibox-collapse"><i class="ti-angle-down"></i></a>
+                        </div>
+                    </div>
+                    <div class="ibox-body">
+                        <form class="form-horizontal" id="form-sample-1" method="post" novalidate="novalidate">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Name</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="email">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Website</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="url">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Number</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="number">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Min length</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="min">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Max length</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="max">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">EqualTo (confirm)</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="password" type="text" name="password" placeholder="password">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10 ml-sm-auto">
+                                    <input class="form-control" type="text" name="password_confirmation" placeholder="confirm password">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10 ml-sm-auto">
+                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+            {% include 'static_element/footer.html' %}
+        </div>
+    </div>
+    <!-- START SEARCH PANEL-->
+    {% include 'static_element/searchtopbar.html' %}
+    <!-- END SEARCH PANEL-->
+    <!-- BEGIN THEME CONFIG PANEL-->
+    {% include 'static_element/themeconfig.html' %}
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    <!-- New question dialog-->
+    {% include 'static_element/session-dialog.html' %}
+    <!-- End New question dialog-->
+    <!-- QUICK SIDEBAR-->
+    {% include 'static_element/quicksidebar.html' %}
+    <!-- END QUICK SIDEBAR-->
+{% endblock %}
+
+{% block externaljs %}
+    <!-- PAGE LEVEL SCRIPTS-->
+    <script>
+        $("#form-sample-1").validate({
+            rules: {
+                name: {
+                    minlength: 2,
+                    required: !0
+                },
+                email: {
+                    required: !0,
+                    email: !0
+                },
+                url: {
+                    required: !0,
+                    url: !0
+                },
+                number: {
+                    required: !0,
+                    number: !0
+                },
+                min: {
+                    required: !0,
+                    minlength: 3
+                },
+                max: {
+                    required: !0,
+                    maxlength: 4
+                },
+                password: {
+                    required: !0
+                },
+                password_confirmation: {
+                    required: !0,
+                    equalTo: "#password"
+                }
+            },
+            errorClass: "help-block error",
+            highlight: function(e) {
+                $(e).closest(".form-group.row").addClass("has-error")
+            },
+            unhighlight: function(e) {
+                $(e).closest(".form-group.row").removeClass("has-error")
+            },
+        });
+    </script>
+{% endblock %}
