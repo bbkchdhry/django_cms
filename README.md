@@ -84,7 +84,7 @@
 			./run.py evaluate (Calls main.evaluate_model from main.py with the arguments)
 
 ---
-<p align="right">[Back to Top]()</p>
+<p align="right">[Back to Top]("#")</p>
 
 #### evaluate_model
 `Arguments: (args)`
